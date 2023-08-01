@@ -1,0 +1,135 @@
+//FONTFACE
+
+@font-face {
+  font-family: "Castoro";
+  src: url('../../../../../../fonts/Castoro-Italic.ttf') format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Castoro";
+  src: url('../../../../../../fonts/Castoro-Regular.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Oxygen";
+  src: url('../../../../../../fonts/Oxygen-Regular.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Oxygen";
+  src: url('../../../../../../fonts/Oxygen-Bold.ttf') format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Oxygen";
+  src: url('../../../../../../fonts/Oxygen-Light.ttf') format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+//VAR FOR BACKGROUNG
+$background-color: #FFFFF0;
+
+//COLOR
+$color: #3C508C;
+$pastelRed: #EFA79F;
+$pastelYellow: #FFE15E;
+$pastelGreen: #B9DAC3;
+$pastelBleu: #A2DAF1;
+$pastelPurple: #DADAFF;
+$pastelOrange: #FFC785;
+
+
+// FONTS
+$sans-serif: "Oxygen", sans-serif;
+$serif: "Castoro", serif;
+
+//VAR FOR MEDIA QUERIES
+$maxWidthPhone: 380px;
+$maxWidthLargePhone: 767px;
+$maxWidthLargeTablet: 1220px;
+$maxWidthLargeLaptop: 1800px;
+
+$breakpoints: (
+        'phone': (max-width: calc(30rem)), //480px
+        'large-phone': (min-width: calc(30rem + 1px)), //481px
+        'tablet': (min-width: calc(48rem - 1px)), // //767px
+        'large-tablet': (min-width: calc(60rem)), // //960px
+        'laptop': (min-width: 80rem), //1280px
+        'large-laptop': (min-width: 100rem), //1600px
+        'desktop': (min-width: 120rem) //1920px
+) !default;
+
+
+@mixin mq($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+    // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// FONT SIZE
+$phonefontSize: 1rem;
+$largeLaptopfontSize: 1.125rem;
+
+//LINE HEIGHT
+$phoneMediumLineHeight: 1.25rem;
+$phoneH2LineHeight: 1.8rem;
+
+//TITLE
+$phoneH2Size: 2rem;
+$phoneH3Size: 1.5rem;
+
+$LargephoneH2Size: 2rem;
+
+//$largephoneH2Size: 2.5rem;
+
+//MARGIN
+$phoneSmallMarginSize: 1rem;
+$phoneMediumMarginSize: 1.5rem;
+$laptopMediumMarginSize: 2rem;
+$largeLaptopMediumMarginSize: 3rem;
+
+//ANCHOR
+@mixin basicAnchor {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+@mixin coloredButton($color) {
+  border: black solid 0;
+  background-color: $color;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+//EM
+@mixin basicEm() {
+
+}
+
+//VERTICAL SPACER
+$phoneMediumVerticalSpacer: 1rem;
+$phoneSmallVerticalSpacer: 0.5rem;
+$phoneLargeVerticalSpacer: 2rem;
+$phoneXLargeVerticalSpacer: 3rem;
+$phoneXXLargeVerticalSpacer: 4.5rem;
+
+
+

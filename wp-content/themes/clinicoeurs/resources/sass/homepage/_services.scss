@@ -1,0 +1,29 @@
+@import "../helpers/var.scss";
+
+.services {
+  margin-block-start: $phoneXXLargeVerticalSpacer;
+  @include mq('phone') {
+    margin-inline: $phoneMediumMarginSize
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-size: $phoneH2Size;
+
+    @include mq(large-phone) {
+      font-size: $phoneH2Size;
+    }
+  }
+
+  & em {
+    font-size: 115%;
+
+    @include mq(large-phone) {
+      font-size: 115%;
+    }
+  }
+}
+

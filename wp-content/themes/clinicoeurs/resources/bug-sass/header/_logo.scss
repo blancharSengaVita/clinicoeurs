@@ -1,0 +1,11 @@
+.logo {
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+  &__text {
+    margin-inline-start: 0.5rem ;
+    line-height: 1.25rem;
+    width: 5rem;
+  }
+}
