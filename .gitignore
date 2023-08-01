@@ -11,4 +11,6 @@
 /wp-content/themes/clinicoeurs/public
 /wp-content/themes/clinicoeurs/resources/bug-sass/
 
+
 /wp-content/themes/clinicoeurs/node_modules
+/wp-content/themes/clinicoeurs/package-lock.json
