@@ -1,9 +1,7 @@
 /*
 !.gitignore
 !README.md
-!package.json
-!webpack.mix.js
-
+!clinicoeurs-database.sql
 
 !/wp-content
 /wp-content/*
@@ -11,3 +9,6 @@
 /wp-content/themes/*
 !/wp-content/themes/clinicoeurs
 /wp-content/themes/clinicoeurs/public
+/wp-content/themes/clinicoeurs/resources/bug-sass/
+
+/wp-content/themes/clinicoeurs/node_modules
