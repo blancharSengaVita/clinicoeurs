@@ -118,13 +118,23 @@ function dd($var){
 	die;
 }
 
+
+//image function
 function image(string $image_id){
 	$image_info = [];
+	$image_info['id'] = $image_id;
 	$image_info['alt_text'] = get_post_meta($image_id, '_wp_attachment_image_alt', true);
-	$image_info['image_url']  = wp_get_attachment_image_url($image_id, 'full');
+	$image_info['image_url']  = wp_get_attachment_image_url($image_id);
+	$image_info['srcset']= wp_get_attachment_image_srcset($image_id);
 	return $image_info;
 }
 
+//image size
+add_image_size('w300', 300, 9999, false);
+add_image_size('w150', 300, 9999, false);
+add_image_size('h70', 9999, 70, false);
+
+//disable automatic tag p on wysiwyg content
 function disable_wpautop(): void {
 	remove_filter('the_content', 'wpautop');
 	remove_filter('the_excerpt', 'wpautop');
