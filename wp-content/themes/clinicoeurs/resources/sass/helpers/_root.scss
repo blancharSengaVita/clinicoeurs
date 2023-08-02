@@ -1,4 +1,5 @@
 @import "var";
+
 :root {
   background-color: $background-color;
   font-family: $sans-serif;
@@ -44,10 +45,32 @@ main > * {
     object-fit: cover;
   }
 
-  p{
+  p {
     max-width: 300px;
   }
 }
 
+p {
+  em {
+    font-size: 115%;
+  }
+  strong {
+    font-weight: bold;
+  }
+}
 
+h2 {
+  font-size: $phoneH2Size;
+  em {
+    font-size: 115%;
+  }
 
+  @include mq(tablet) {
+    font-size: $tabletH2Size;
+  }
+}
+
+p {
+  margin-block: 1rem;
+  line-height: 125%;
+}
