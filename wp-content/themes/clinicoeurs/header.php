@@ -11,12 +11,10 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="<?= image(get_field('logo'))['image_url'] ?>">
 	<link rel="icon" type="image/png" sizes="32x32" href="<?= image(get_field('logo'))['image_url'] ?>">
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= image(get_field('logo'))['image_url'] ?>">
-	<link rel="manifest" href="site.webmanifest">
 </head>
 <body>
 <h1 class="sro"><?= __(get_the_title(), 'clinicoeurs'); ?></h1>
 <header class="header">
-	<h2 class="header__title sro"> Menu de navigation principale </h2>
 	<div class="header__container">
 		<a class="header__logo logo" href="<?= home_url() ?>">
 			<div class="logo__container">
@@ -28,6 +26,7 @@
 
 	</div>
 	<nav class="nav header__container menu menu--desktop display-none">
+		<h2 class="sro">Navigation principale</h2>
 		<ul class="nav__list">
 			<?php foreach (clinicoeurs_get_menu('main') as $link): ?>
 				<li class="nav__item">
@@ -42,7 +41,7 @@
 	</nav>
 
 	<div class="header__container menu menu--mobile">
-		<h2 class="sro">Navigation principale</h2>
+
 		<input type="checkbox" name="menu" id="menu" class="sro menu__checkbox">
 		<label for="menu" class="menu__open ">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" width="40" height="40" viewBox="0 0 24 24" stroke-width="1">
@@ -61,6 +60,7 @@
 			</label>
 
 			<nav class="menu__nav nav">
+				<h2 class="header__title sro"> Menu de navigation principale </h2>
 				<?php foreach (clinicoeurs_get_menu('main') as $link): ?>
 					<a href="<?= $link->href; ?>" class="nav__link">
 						<span class="nav__label">
