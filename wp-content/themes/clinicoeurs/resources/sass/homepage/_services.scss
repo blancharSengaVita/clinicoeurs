@@ -2,8 +2,9 @@
 
 .services {
   margin-block-start: $phoneXXLargeVerticalSpacer;
+  margin-inline: $phoneMediumMarginSize;
   @include mq('phone') {
-    margin-inline: $phoneMediumMarginSize
+
   }
 
   display: flex;
