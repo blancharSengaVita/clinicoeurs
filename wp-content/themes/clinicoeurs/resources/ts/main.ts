@@ -1,4 +1,16 @@
+
+import {enableJavaScript} from "./enableJs";
+enableJavaScript();
+
 import {displayTheMenuOnDesktop} from "./displayTheMenuOnDesktop";
-console.log('oui');
 displayTheMenuOnDesktop.init();
+
+import {tabs} from "./tabs"
+tabs.init();
+
+
+
+
+
+
 

@@ -20,37 +20,46 @@
 
 		</div>
 
+		<!-- ZONE D'EXERCICES POUR FAIRE DES ONGLET ACCESSIBLE -->
+
+
 		<!-- MON FOREACH POUR LA BOUCLE DES NOMS -->
 		<Section class="services">
 			<h2 class="services__title"><?= __(get_field('service_section')['section_title'], 'clinicoeurs') ?></h2>
-			<nav class="services__tabs tabs">
-				<h3 class="sro"> Menu des services </h3>
-				<ul class="tabs__list">
-					<?php foreach (get_field('service_section')['services'] as $services): ?>
-						<li class="tabs__item">
-							<img src="<?= __($services['service']['service_symbol'], 'clinicoeurs') ?>" alt="">
-							<button class="tabs__links">
-								<?= __($services['service']['service_name'], 'clinicoeurs') ?>
-							</button>
-						</li>
-					<?php endforeach; ?>
-				</ul>
-			</nav>
-			<?php foreach (get_field('service_section')['services'] as $services): ?>
-				<?php
-				$image_id = $services['service']['service_image'];
-				$alt_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
-				$image_url = wp_get_attachment_image_url($image_id);
-				$srcset = wp_get_attachment_image_srcset($image_id)
-				?>
+			<div class="services__container">
+				<nav class="services__tabs tabs">
+					<h3 class="sro"> Menu des services </h3>
+					<ul class="tabs__list">
+						<?php $tabs_id = 1 ?>
+						<?php foreach (get_field('service_section')['services'] as $services): ?>
+							<li class="tabs__item">
+								<img src="<?= __($services['service']['service_symbol'], 'clinicoeurs') ?>" alt="">
+								<button data-id="section-<?= $tabs_id ?>" class="tabs__links active">
+									<?php $tabs_id++ ?>
+									<?= __($services['service']['service_name'], 'clinicoeurs') ?>
+								</button>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</nav>
+				<?php $content_id = 1; ?>
+				<?php foreach (get_field('service_section')['services'] as $services): ?>
+					<?php
+					$image_id = $services['service']['service_image'];
+					$alt_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+					$image_url = wp_get_attachment_image_url($image_id);
+					$srcset = wp_get_attachment_image_srcset($image_id)
+					?>
 
-				<article class="tabs__content content">
-					<img class="content__image" srcset="<?= $srcset ?>" src="<?= $image_url ?>" alt="<?= __($alt_text, 'clinicoeurs') ?>" sizes="(max-width: 767px) 300px, (min-width: 768px) 400px, 400px" >
-					<h3 class="content__title">  <?= __($services['service']['service_title'], 'clinicoeurs') ?> </h3>
-					<p class="content__paragraph"> <?= __($services['service']['service_text'], 'clinicoeurs') ?> </p>
-					<a class="content__link" href="<?= __($services['service']['service_link'], 'clinicoeurs') ?>" title="<?= __($services['service']['service_link_title'], 'clinicoeurs') ?>">  <?= __($services['service']['service_link_label'], 'clinicoeurs') ?> </a>
-				</article>
-			<?php endforeach; ?>
+					<article id="section-<?= $content_id ?>" class="tabs__content content">
+						<img class="content__image" srcset="<?= $srcset ?>" src="<?= $image_url ?>" alt="<?= __($alt_text, 'clinicoeurs') ?>" sizes="(max-width: 767px) 300px, (min-width: 768px) 400px, 400px">
+						<h3 class="content__title">  <?= __($services['service']['service_title'], 'clinicoeurs') ?> </h3>
+						<p class="content__paragraph"> <?= __($services['service']['service_text'], 'clinicoeurs') ?> </p>
+						<a class="content__link" href="<?= __($services['service']['service_link'], 'clinicoeurs') ?>" title="<?= __($services['service']['service_link_title'], 'clinicoeurs') ?>">  <?= __($services['service']['service_link_label'], 'clinicoeurs') ?> </a>
+					</article>
+					<?php $content_id++; endforeach; ?>
+			</div>
+
 		</Section>
 
 		<section class="support">
@@ -161,7 +170,7 @@
 					<h3>
 						<?= get_the_title() ?>
 					</h3>
-					<img  srcset="<?= wp_get_attachment_image_srcset(get_field('article')['article_image']) ?>" src="<?= image(get_field('article')['article_image'])['image_url'] ?>"
+					<img srcset="<?= wp_get_attachment_image_srcset(get_field('article')['article_image']) ?>" src="<?= image(get_field('article')['article_image'])['image_url'] ?>"
 						 alt="<?= __(image(get_field('article')['article_image'])['alt_text'], 'clinicoeurs') ?>">
 
 					<p>
@@ -210,10 +219,10 @@
 		</section>
 
 		<section class="sponsor sponsor__section">
-			<h2 class="" > <?= get_field('sponsor_section')['section_slogan'] ?> </h2>
+			<h2 class=""> <?= get_field('sponsor_section')['section_slogan'] ?> </h2>
 			<!-- N'oublie pas de mettre les alt dans l'admin ET de génerer toutes les tailles d'images -->
 			<?php foreach (get_field('sponsor_section')['sponsors_images'] as $sponsor): ?>
-				<img srcset=" <?= wp_get_attachment_image_srcset($sponsor['sponsor_image']) ?> " src="<?= wp_get_attachment_url( $sponsor['sponsor_image'] ) ?>" alt="<?= __(get_post_meta( $sponsor['sponsor_image'], '_wp_attachment_image_alt', true ), 'clinicoeurs') ?>">
+				<img srcset=" <?= wp_get_attachment_image_srcset($sponsor['sponsor_image']) ?> " src="<?= wp_get_attachment_url($sponsor['sponsor_image']) ?>" alt="<?= __(get_post_meta($sponsor['sponsor_image'], '_wp_attachment_image_alt', true), 'clinicoeurs') ?>">
 			<?php endforeach; ?>
 		</section>
 

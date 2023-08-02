@@ -3,13 +3,13 @@
 .services {
   margin-block-start: $phoneXXLargeVerticalSpacer;
   margin-inline: $phoneMediumMarginSize;
-  @include mq('phone') {
 
-  }
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+
 
   &__title {
     font-size: $phoneH2Size;
@@ -22,5 +22,12 @@
   & em {
     font-size: 115%;
   }
+
+  &__container {
+    @include mq('tablet') {
+      //display: flex;
+    }
+  }
 }
+
 

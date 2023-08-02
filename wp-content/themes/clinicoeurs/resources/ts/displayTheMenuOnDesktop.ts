@@ -5,7 +5,6 @@ export const displayTheMenuOnDesktop = {
     initConst():void{
         this.navDesktop = document.querySelector('.menu--desktop');
         this.navMobile = document.querySelector('.menu--mobile');
-        console.log(this.navMobile);
     },
 
     selectGoodMenu(){

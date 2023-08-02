@@ -29,6 +29,9 @@
 
   &__links {
     color: $color;
+    width: 50px;
+    height: 50px;
+    border: black 1px solid;
   }
 
   &__content {
@@ -58,7 +61,6 @@
         object-fit: cover;
         object-position: 65% 35%;
       }
-
 
     }
 
@@ -91,3 +93,18 @@
     }
   }
 }
+
+.js-enabled .tabs__content {
+  height: 0;
+  overflow: hidden;
+}
+
+
+.tabs__content.active {
+  overflow: initial;
+  transition: all 1s ease;
+  min-height: 100%;
+  height: initial;
+}
+
+
