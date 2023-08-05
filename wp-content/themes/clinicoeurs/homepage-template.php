@@ -128,7 +128,7 @@
 		</section>
 
 		<section class="volunteering__insert">
-				<p> <?= __(get_field('volunteering_section_1')['volunteering_insert'], 'clinicoeurs') ?> </p>
+			<p> <?= __(get_field('volunteering_section_1')['volunteering_insert'], 'clinicoeurs') ?> </p>
 		</section>
 
 		<section class="product__section product">
@@ -168,41 +168,46 @@
 			</div>
 		</section>
 
-		<section class="news news__section">
-			<h2 class="product__title">
-				<?= __(get_field('news_section')['section_title'], 'clinicoeurs') ?>
-			</h2>
-			<?php
-			// Faire une requête en DB pour récupérer 3 projets
-			$recent_post = new WP_Query([
-					'post_type' => 'post',
-					'posts_per_page' => 3,
-			]); ?>
+		<div class="news__background">
+			<section class="news news__section">
 
-			<?php // Lancer la boucle pour afficher chaque poste
-			if ($recent_post->have_posts()): while ($recent_post->have_posts()):
-				$recent_post->the_post();
-				?>
-				<article class="job__card">
-					<h3>
-						<?= get_the_title() ?>
-					</h3>
-					<img srcset="<?= wp_get_attachment_image_srcset(get_field('article')['article_image']) ?>" src="<?= image(get_field('article')['article_image'])['image_url'] ?>"
-						 alt="<?= __(image(get_field('article')['article_image'])['alt_text'], 'clinicoeurs') ?>">
+				<h2 class="news__title">
+					<?= __(get_field('news_section')['section_title'], 'clinicoeurs') ?>
+				</h2>
+				<div class="news__container">
+					<?php
+					// Faire une requête en DB pour récupérer 3 projets
+					$recent_post = new WP_Query([
+							'post_type' => 'post',
+							'posts_per_page' => 3,
+					]); ?>
 
-					<p>
-						<?= get_the_date() ?>
-					</p>
+					<?php // Lancer la boucle pour afficher chaque poste
+					if ($recent_post->have_posts()): while ($recent_post->have_posts()):
+						$recent_post->the_post();
+						?>
+						<article class="news__item">
+							<h3 class="item__title">
+								<?= get_the_title() ?>
+							</h3>
+							<img class="item__img" srcset="<?= wp_get_attachment_image_srcset(get_field('article')['article_image']) ?>" src="<?= image(get_field('article')['article_image'])['image_url'] ?>"
+								 alt="<?= __(image(get_field('article')['article_image'])['alt_text'], 'clinicoeurs') ?>">
 
-					<p>
-						<?= __(get_field('article')['article_summary'], 'clinicoeurs') ?>
-					</p>
-				</article>
-			<?php endwhile; else: ?>
-				<p> Aucune nouvelle pour l'instant </p>
-			<?php endif;
-			wp_reset_query(); ?>
-		</section>
+							<p class="item__date">
+								<?= get_the_date() ?>
+							</p>
+
+							<p class="item__exercpt">
+								<?= __(get_field('article')['article_summary'], 'clinicoeurs') ?>
+							</p>
+						</article>
+					<?php endwhile; else: ?>
+						<p> Aucune nouvelle pour l'instant </p>
+					<?php endif;
+					wp_reset_query(); ?>
+				</div>
+			</section>
+		</div>
 
 		<section class="testimonials testimonials_section">
 			<h2>
