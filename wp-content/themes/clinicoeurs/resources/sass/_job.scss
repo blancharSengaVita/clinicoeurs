@@ -1,0 +1,48 @@
+@import "helpers/var";
+
+.job {
+  margin-block: 1rem;
+  padding: 2rem;
+  line-height: 125%;
+  border-radius: 2rem;
+  max-width: 220px;
+  justify-self: center;
+  height: auto;
+
+  @include mq(large-tablet) {
+    aspect-ratio: 3/5;
+  }
+
+  @each $color, $hexCode in $map-colors {
+    &__card--#{$color} { //insertion du nom de classe
+      background-color: $hexCode; //correspondance
+    }
+  }
+
+
+  & dd, & dt {
+    display: inline;
+  }
+
+  & > * {
+    margin-block-start: $phoneMediumVerticalSpacer;
+  }
+
+  & img {
+    margin-block-start: 0;
+    height: 40px;
+    width: auto;
+
+    @include mq(tablet){
+      height: 60px;
+    }
+  }
+
+  & h3 {
+    font-family: $serif;
+    font-style: italic;
+    font-size: $phoneH3Size * 1.15;
+  }
+
+}
+

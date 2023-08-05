@@ -5,6 +5,7 @@
   font-family: $sans-serif;
   font-size: 16px;
   color: $color;
+  line-height: 125%;
 }
 
 body {
@@ -17,16 +18,17 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-
 }
 
 main {
   //pour pas avoir de defilement verticale en
-  // ajputant des formes qui doivent sortir de la page
+  // ajoutant des formes qui doivent sortir de la page
   overflow-x: clip;
+
   //pour un sticky footer
   flex-grow: 1;
 
+  //pour que toutes les section soit aligné
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,42 +37,78 @@ main {
 em {
   font-style: italic;
   font-family: $serif;
+  font-size: 115%;
 }
 
-//pour pas avoir un des images/paragraphes trop grand
+strong {
+  font-weight: bold;
+}
+
+//pour pas avoir un des images et de paragraphes trop grand
 //avant de faire le css
-main > * {
+
+
   img {
     width: 300px;
     object-fit: cover;
   }
 
-  p {
-    max-width: 300px;
-  }
+dd, dt {
+
 }
 
 p {
-  em {
-    font-size: 115%;
+  margin-block-start: 1rem;
+  line-height: $phoneLineHeight;
+  max-width: 300px;
+
+  @include mq(large-tablet){
+    font-size: 1.15rem;
+    max-width: 400px;
   }
-  strong {
-    font-weight: bold;
+  @include mq(large-desktop){
+    font-size: 1.25rem;
+    max-width: 500px;
   }
 }
 
 h2 {
+  margin-block-end: 1.5rem;
   font-size: $phoneH2Size;
-  em {
-    font-size: 115%;
-  }
 
   @include mq(tablet) {
     font-size: $tabletH2Size;
   }
 }
 
-p {
-  margin-block: 1rem;
-  line-height: 125%;
+h3 {
+  margin-block-start: 1.5rem;
+  font-size: $phoneH3Size;
+
+  @include mq(large-tablet){
+    max-width: 450px;
+    font-size: $laptopH3Size;
+    line-height: 125%;
+  }
+
+  @include mq(laptop){
+    max-width: 450px;
+    font-size: $laptopH3Size;
+    line-height: 125%;
+  }
+}
+
+
+a {
+  @include basicAnchor;
+}
+
+section {
+  margin-block: 2rem;
+  @include mq(tablet){
+    margin-block: 3rem;
+  }
+  @include mq(laptop){
+    margin-block: 6rem;
+  }
 }

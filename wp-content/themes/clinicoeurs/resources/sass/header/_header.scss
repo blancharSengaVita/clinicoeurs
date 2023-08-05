@@ -7,7 +7,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   //width: calc(100% - ($phoneMediumMarginSize*2));
+
+  a {
+    text-decoration: none;
+    font-weight: normal;
+  }
+
+  img {
+    width: 50px;
+  }
+
+  p {
+    margin-block: 0;
+  }
 
   @include mq(large-phone){
     //max-width: $maxWidthLargePhone;

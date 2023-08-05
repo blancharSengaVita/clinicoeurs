@@ -33,31 +33,33 @@
 						<?php $tabs_id = 1 ?>
 						<?php foreach (get_field('service_section')['services'] as $services): ?>
 							<li class="tabs__item">
-								<img src="<?= __($services['service']['service_symbol'], 'clinicoeurs') ?>" alt="">
-								<button data-id="section-<?= $tabs_id ?>" class="tabs__links active">
+								<button data-id="section-<?= $tabs_id ?>" class="tabs__links">
 									<?php $tabs_id++ ?>
 									<?= __($services['service']['service_name'], 'clinicoeurs') ?>
 								</button>
+								<img class="link__image" src="<?= __($services['service']['service_symbol'], 'clinicoeurs') ?>" alt="">
 							</li>
 						<?php endforeach; ?>
 					</ul>
 				</nav>
-				<?php $content_id = 1; ?>
-				<?php foreach (get_field('service_section')['services'] as $services): ?>
-					<?php
-					$image_id = $services['service']['service_image'];
-					$alt_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
-					$image_url = wp_get_attachment_image_url($image_id);
-					$srcset = wp_get_attachment_image_srcset($image_id)
-					?>
+				<div class="tabs__container">
+					<?php $content_id = 1; ?>
+					<?php foreach (get_field('service_section')['services'] as $services): ?>
+						<?php
+						$image_id = $services['service']['service_image'];
+						$alt_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+						$image_url = wp_get_attachment_image_url($image_id);
+						$srcset = wp_get_attachment_image_srcset($image_id)
+						?>
 
-					<article id="section-<?= $content_id ?>" class="tabs__content content">
-						<img class="content__image" srcset="<?= $srcset ?>" src="<?= $image_url ?>" alt="<?= __($alt_text, 'clinicoeurs') ?>" sizes="(max-width: 767px) 300px, (min-width: 768px) 400px, 400px">
-						<h3 class="content__title">  <?= __($services['service']['service_title'], 'clinicoeurs') ?> </h3>
-						<p class="content__paragraph"> <?= __($services['service']['service_text'], 'clinicoeurs') ?> </p>
-						<a class="content__link" href="<?= __($services['service']['service_link'], 'clinicoeurs') ?>" title="<?= __($services['service']['service_link_title'], 'clinicoeurs') ?>">  <?= __($services['service']['service_link_label'], 'clinicoeurs') ?> </a>
-					</article>
-					<?php $content_id++; endforeach; ?>
+						<article id="section-<?= $content_id ?>" class="tabs__content content">
+							<img class="content__image" srcset="<?= $srcset ?>" src="<?= $image_url ?>" alt="<?= __($alt_text, 'clinicoeurs') ?>" sizes="(max-width: 767px) 300px, (min-width: 768px) 400px, 400px">
+							<h3 class="content__title">  <?= __($services['service']['service_title'], 'clinicoeurs') ?> </h3>
+							<p class="content__paragraph"> <?= __($services['service']['service_text'], 'clinicoeurs') ?> </p>
+							<a class="content__link" href="<?= __($services['service']['service_link'], 'clinicoeurs') ?>" title="<?= __($services['service']['service_link_title'], 'clinicoeurs') ?>">  <?= __($services['service']['service_link_label'], 'clinicoeurs') ?> </a>
+						</article>
+						<?php $content_id++; endforeach; ?>
+				</div>
 			</div>
 
 		</Section>
@@ -72,8 +74,8 @@
 			?>
 			<h2><?= __($content['section_title'], 'clinicoeurs') ?></h2>
 			<p><?= __($content['section_text'], 'clinicoeurs') ?></p>
-			<img srcset="<?= $srcset ?>src="<?= $image_url ?>" alt="<?= __($alt_text, 'clinicoeurs') ?>">
 			<a href="<?= $content['section_link'] ?>" title="<?= __($content['section_link_title'], 'clinicoeurs') ?>"> <?= __($content['section_link_label'], 'clinicoeurs') ?> </a>
+			<img srcset="<?= $srcset ?>src="<?= $image_url ?>" alt="<?= __($alt_text, 'clinicoeurs') ?>">
 		</section>
 
 		<section class="volunteering">
@@ -84,71 +86,86 @@
 			// Faire une requête en DB pour récupérer 3 projets
 			$job = new WP_Query([
 					'post_type' => 'poste',
-					'posts_per_page' => 3,
+					'posts_per_page' => 4,
 			]); ?>
-
-			<?php // Lancer la boucle pour afficher chaque poste
-			if ($job->have_posts()): while ($job->have_posts()):
-				$job->the_post();
-				?>
-				<article class="job__card">
-					<h3 class=""><?= get_the_title(); ?> </h3>
-					<?php
-					$content = get_field('job_presentation');
+			<div class="volunteering__container">
+				<?php // Lancer la boucle pour afficher chaque poste
+				if ($job->have_posts()): while ($job->have_posts()):
+					$job->the_post();
 					?>
-					<p> <?= __($content['job_location']['label'], 'clinicoeurs') ?> <?= __($content['job_location']['location'], 'clinicoeurs') ?> </p>
-					<p> <?= __($content['job_schedule']['label'], 'clinicoeurs') ?> <?= __($content['job_schedule']['schedule'], 'clinicoeurs') ?> </p>
-					<p> <?= __($content['job_description']['label'], 'clinicoeurs') ?> <?= __($content['job_description']['description'], 'clinicoeurs') ?> </p>
-				</article>
-			<?php endwhile; else: ?>
-				<p> Aucune annonce pour l'instant </p>
-			<?php endif;
-			wp_reset_query(); ?>
+
+					<?php $content = get_field('job_presentation');
+//				dd(get_field($content['job_location']));
+					?>
+
+					<article class="job job__card--<?= $content['card_color'] ?> ">
+						<img class="style-svg" style="color: red;" src="<?= wp_get_attachment_image_url($content['job_symbol']) ?>" alt="">
+						<h3 class=""><?= get_the_title(); ?> </h3>
+						<div class="job__container">
+							<dd> <?= __($content['job_location']['label'], 'clinicoeurs') ?> </dd>
+							<dt> <?= __($content['job_location']['location'], 'clinicoeurs') ?> </dt>
+						</div>
+						<div class="job__container">
+							<dd> <?= __($content['job_schedule']['label'], 'clinicoeurs') ?>  </dd>
+							<dt> <?= __($content['job_schedule']['schedule'], 'clinicoeurs') ?> </dt>
+						</div>
+						<div class="job__container">
+							<dd> <?= __($content['job_description']['label'], 'clinicoeurs') ?> </dd>
+							<dt>  <?= __($content['job_description']['description'], 'clinicoeurs') ?> </dt>
+						</div>
+					</article>
+
+				<?php endwhile; else: ?>
+					<p> Aucune annonce pour l'instant </p>
+				<?php endif;
+				wp_reset_query(); ?>
+			</div>
 
 			<a href="<?= __(get_field('volunteering_section_1')['section_link'], 'clinicoeurs') ?>"
 			   title="<?= __(get_field('volunteering_section_1')['section_link_title'], 'clinicoeurs') ?>">
 				<?= __(get_field('volunteering_section_1')['section_link_label'], 'clinicoeurs') ?>
 			</a>
+		</section>
 
-			<p class="volunteering__insert">
-				<?= __(get_field('volunteering_section_1')['volunteering_insert'], 'clinicoeurs') ?>
-			</p>
+		<section class="volunteering__insert">
+				<p> <?= __(get_field('volunteering_section_1')['volunteering_insert'], 'clinicoeurs') ?> </p>
 		</section>
 
 		<section class="product__section product">
 			<h2 class="product__title">
 				<?= __(get_field('product_section')['section_title'], 'clinicoeurs') ?>
 			</h2>
-			<a href="<?= __(get_field('product_section')['section_link'], 'clinicoeurs') ?>"
+			<a class="product__link--more" href="<?= __(get_field('product_section')['section_link'], 'clinicoeurs') ?>"
 			   title="<?= __(get_field('product_section')['section_link_text'], 'clinicoeurs') ?>">
 				<?= __(get_field('product_section')['section_link_text'], 'clinicoeurs') ?>
 			</a>
 
+			<div class="product__container">
+				<?php
+				// Faire une requête en DB pour récupérer 3 projets
+				$product = new WP_Query([
+						'post_type' => 'produit',
+						'posts_per_page' => 9999,
+				]); ?>
 
-			<?php
-			// Faire une requête en DB pour récupérer 3 projets
-			$product = new WP_Query([
-					'post_type' => 'produit',
-					'posts_per_page' => 9999,
-			]); ?>
+				<?php // Lancer la boucle pour afficher chaque poste
+				if ($product->have_posts()): while ($product->have_posts()):
+					$product->the_post();
+					?>
 
-			<?php // Lancer la boucle pour afficher chaque poste
-			if ($product->have_posts()): while ($product->have_posts()):
-				$product->the_post();
-				?>
-
-				<a href="<?= __(get_field('category_link'), 'clinicoeurs') ?>"
-				   title="<?= __(get_field('category_link_title'), 'clinicoeurs') ?>">
-					<article class="product__card">
-						<img srcset="<?= wp_get_attachment_image_srcset(get_field('category_image')) ?>" src="<?= image(get_field('category_image'))['image_url'] ?>"
-							 alt="<?= __(image(get_field('category_image'))['alt_text'], 'clinicoeurs') ?>">
-						<h3 class=""><?= __(get_the_title(), 'clinicoeurs') ?></h3>
-					</article>
-				</a>
-			<?php endwhile; else: ?>
-				<p> Aucune annonce pour l'instant </p>
-			<?php endif;
-			wp_reset_query(); ?>
+					<a class="product__link--product" href="<?= __(get_field('category_link'), 'clinicoeurs') ?>"
+					   title="<?= __(get_field('category_link_title'), 'clinicoeurs') ?>">
+						<article class="product__card product__card--<?= get_field('card_color') ?> ">
+							<img srcset="<?= wp_get_attachment_image_srcset(get_field('category_image')) ?>" src="<?= image(get_field('category_image'))['image_url'] ?>"
+								 alt="<?= __(image(get_field('category_image'))['alt_text'], 'clinicoeurs') ?>">
+							<h3><?= __(get_the_title(), 'clinicoeurs') ?></h3>
+						</article>
+					</a>
+				<?php endwhile; else: ?>
+					<p> Aucune annonce pour l'instant </p>
+				<?php endif;
+				wp_reset_query(); ?>
+			</div>
 		</section>
 
 		<section class="news news__section">

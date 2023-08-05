@@ -47,8 +47,20 @@ $pastelBleu: #A2DAF1;
 $pastelPurple: #DADAFF;
 $pastelOrange: #FFC785;
 
+//Définition du mappage(cartographie) des colors et des valeurs hexadecimales (table de caractère)
+$map-colors: (
+  // argument 1 = $element (son nom repris dans la classe de l'objet)
+  // argument 2 = $couleur    (sa correspondance -> valeur hex)
+        "rouge": $pastelRed,
+        "orange": $pastelOrange,
+        "jaune": $pastelYellow,
+        "vert": $pastelGreen,
+        "bleu": $pastelBleu,
+        "violet": $pastelPurple,
+);
 
-// FONTS
+
+// FONT-FAMILY
 $sans-serif: "Oxygen", sans-serif;
 $serif: "Castoro", serif;
 
@@ -86,20 +98,27 @@ $breakpoints: (
 
 // FONT SIZE
 $phonefontSize: 1rem;
-$largeLaptopfontSize: 1.125rem;
+$largeTableFontSize: 1.15rem;
+$LaptopfontSize: 1.125rem;
+$largeLaptopfontSize: 1.25rem;
 
 //LINE HEIGHT
-$phoneMediumLineHeight: 1.25rem;
-$phoneH2LineHeight: 1.8rem;
+$phoneMediumLineHeight: 125%;
+$phoneH2LineHeight: 125%;
+$phoneLineHeight : 125%;
 
 //TITLE
 $phoneH2Size: 2.5rem;
-$phoneH3Size: 1.5rem;
+$phoneH3Size: 1.875rem;
+
+
+$largePhoneH2Size: 3rem;
+$largePhoneH3Size: 2rem;
 
 $tabletH2Size: 3.5rem;
 $tabletH3Size: 2rem;
 
-$LargephoneH2Size: 2rem;
+$laptopH3Size: 2.5rem;
 
 //$largephoneH2Size: 2.5rem;
 
@@ -122,17 +141,19 @@ $largeLaptopMediumMarginSize: 3rem;
   font-weight: bold;
 }
 
-//EM
-@mixin basicEm() {
+@mixin bigAnchor {
+  margin-block: 2rem;
+  font-size: 2rem;
+  text-decoration-thickness : 0.2rem;
 
+  @include mq(large-phone) {
+    font-size: 3rem;
+  }
 }
 
 //VERTICAL SPACER
-$phoneMediumVerticalSpacer: 1rem;
 $phoneSmallVerticalSpacer: 0.5rem;
+$phoneMediumVerticalSpacer: 1rem;
 $phoneLargeVerticalSpacer: 2rem;
 $phoneXLargeVerticalSpacer: 3rem;
-$phoneXXLargeVerticalSpacer: 4.5rem;
-
-
-
+$phoneXXLargeVerticalSpacer: 4rem;
