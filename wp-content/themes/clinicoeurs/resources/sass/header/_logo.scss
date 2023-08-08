@@ -2,9 +2,15 @@
   &__container {
     display: flex;
     align-items: center;
+
+    p {
+
+    }
   }
+
   &__text {
-    margin-inline-start: 0.5rem ;
+    margin-block-start: 0rem;
+    margin-inline-start: 0.5rem;
     line-height: 1.25rem;
     width: 5rem;
   }

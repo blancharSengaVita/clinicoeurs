@@ -1,4 +1,5 @@
 <?php
+
 // Démarrer le système de sessions pour pouvoir afficher des messages de feedback venant des formulaires.
 if(session_status() === PHP_SESSION_NONE) session_start();
 
@@ -130,9 +131,18 @@ function image(string $image_id){
 }
 
 //image size
+add_image_size('w500', 300, 9999, false);
+add_image_size('w400', 300, 9999, false);
 add_image_size('w300', 300, 9999, false);
+add_image_size('w250', 300, 9999, false);
 add_image_size('w150', 300, 9999, false);
+add_image_size('w100', 300, 9999, false);
+add_image_size('w80', 300, 9999, false);
+add_image_size('w60', 300, 9999, false);
+
 add_image_size('h70', 9999, 70, false);
+add_image_size('h55', 9999, 70, false);
+add_image_size('h40', 9999, 70, false);
 
 //disable automatic tag p on wysiwyg content
 function disable_wpautop(): void {

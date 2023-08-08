@@ -1,12 +1,12 @@
 @import "../helpers/var";
 .news {
   width: calc(100% - $phoneMediumMarginSize*2);
-  margin-block-start: 0;
-  padding-block-start: 2rem;
+  margin-block-start: 4rem;
   padding-inline: $phoneMediumMarginSize;
       max-width: $maxWidthLargeTablet;
 
   &__background{
+    margin-block-start: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,6 +21,11 @@
 
   &__title {
     align-self: end;
+    margin-block-start: 1rem;
+    margin-block-end: 1.5rem;
+    @include mq(large-tablet){
+      margin-block-end: 2.5rem;
+    }
   }
 
   &__container {
@@ -75,6 +80,7 @@
         aspect-ratio: 3/2;
         margin-block-start: 1.5rem;
         width: 400px;
+        object-position: 0% 10%;
       }
 
       & p {

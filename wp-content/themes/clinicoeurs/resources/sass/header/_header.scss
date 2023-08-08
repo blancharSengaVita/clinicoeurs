@@ -1,9 +1,19 @@
 @import "../helpers/var";
 
 .header{
-  margin-top: $phoneMediumVerticalSpacer;
-  margin-right: $phoneMediumMarginSize;
-  margin-left: $phoneMediumMarginSize;
+  //pour que le header apparaisse partout
+  transition: top 0.3s;
+  position: fixed;
+  top: 0;
+  background-color: $background-color;
+
+  z-index: 10;
+
+  width: calc(100% - ($phoneMediumMarginSize*2));
+  padding-top: $phoneMediumVerticalSpacer;
+  padding-right: $phoneMediumMarginSize;
+  padding-left: $phoneMediumMarginSize;
+  padding-bottom: $phoneMediumVerticalSpacer;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,26 +30,33 @@
   }
 
   p {
-    margin-block: 0;
+    padding-block: 0;
   }
 
   @include mq(large-phone){
     //max-width: $maxWidthLargePhone;
-    margin-right: $laptopMediumMarginSize;
-    margin-left: $laptopMediumMarginSize;
+    padding-right: $laptopMediumMarginSize;
+    padding-left: $laptopMediumMarginSize;
+    width: calc(100% - ($laptopMediumMarginSize*2));
   }
 
   @include mq(large-tablet){
     //max-width: $maxWidthLargeTablet;
-    margin-right: $largeLaptopMediumMarginSize;
-    margin-left: $largeLaptopMediumMarginSize;
+    padding-right: $largeLaptopMediumMarginSize;
+    padding-left: $largeLaptopMediumMarginSize;
+    width: calc(100% - ($largeLaptopMediumMarginSize*2));
     font-size: 1.125rem;
   }
 
   @include mq(large-laptop){
     max-width: calc($maxWidthLargeLaptop + 200px);
-    margin-right: $largeLaptopMediumMarginSize;
-    margin-left: $largeLaptopMediumMarginSize;
+    padding-right: $largeLaptopMediumMarginSize;
+    padding-left: $largeLaptopMediumMarginSize;
+    width: calc(100% - ($largeLaptopMediumMarginSize*2));
     font-size: $largeLaptopfontSize;
   }
+}
+
+.scrolling-down {
+  top: -200px;
 }

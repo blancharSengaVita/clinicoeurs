@@ -3,7 +3,7 @@
 .hero {
   position: relative;
   //Margin
-  margin-block-start: $phoneLargeVerticalSpacer;
+  margin-block-start: calc($phoneLargeVerticalSpacer + 3rem) ;
   margin-inline: $phoneMediumMarginSize;
 
   //Display

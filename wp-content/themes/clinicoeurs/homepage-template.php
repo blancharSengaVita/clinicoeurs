@@ -14,7 +14,7 @@
 			<img class="hero__shape hero__rectangle" src="<?= get_site_url() . "/wp-content/uploads/2023/07/Rectangle-43.svg" ?>" alt="">
 			<div class="hero__container">
 				<p class="hero__paragraphe"> <?= __(get_field('excerpt'), 'clinicoeurs') ?>  </p>
-				<a class="hero__link" href=""><?= __(get_field('excerpt_link')['link_label'], 'clinicoeurs') ?> </a>
+				<a target="_blank" class="hero__link" href=""><?= __(get_field('excerpt_link')['link_label'], 'clinicoeurs') ?> </a>
 
 			</div>
 
@@ -26,6 +26,7 @@
 		<!-- MON FOREACH POUR LA BOUCLE DES NOMS -->
 		<Section class="services">
 			<h2 class="services__title"><?= __(get_field('service_section')['section_title'], 'clinicoeurs') ?></h2>
+			<h2 class="sro"><?= __(get_field('service_section')['section_title'], 'clinicoeurs') ?></h2>
 			<div class="services__container">
 				<nav class="services__tabs tabs">
 					<h3 class="sro"> Menu des services </h3>
@@ -56,12 +57,11 @@
 							<img class="content__image" srcset="<?= $srcset ?>" src="<?= $image_url ?>" alt="<?= __($alt_text, 'clinicoeurs') ?>" sizes="(max-width: 767px) 300px, (min-width: 768px) 400px, 400px">
 							<h3 class="content__title">  <?= __($services['service']['service_title'], 'clinicoeurs') ?> </h3>
 							<p class="content__paragraph"> <?= __($services['service']['service_text'], 'clinicoeurs') ?> </p>
-							<a class="content__link" href="<?= __($services['service']['service_link'], 'clinicoeurs') ?>" title="<?= __($services['service']['service_link_title'], 'clinicoeurs') ?>">  <?= __($services['service']['service_link_label'], 'clinicoeurs') ?> </a>
+							<a target="_blank" class="content__link" href="<?= __($services['service']['service_link'], 'clinicoeurs') ?>" title="<?= __($services['service']['service_link_title'], 'clinicoeurs') ?>">  <?= __($services['service']['service_link_label'], 'clinicoeurs') ?> </a>
 						</article>
 						<?php $content_id++; endforeach; ?>
 				</div>
 			</div>
-
 		</Section>
 
 		<section class="support">
@@ -93,9 +93,8 @@
 				if ($job->have_posts()): while ($job->have_posts()):
 					$job->the_post();
 					?>
-
 					<?php $content = get_field('job_presentation');
-//				dd(get_field($content['job_location']));
+//					dd(get_field($content['job_location']));
 					?>
 
 					<article class="job job__card--<?= $content['card_color'] ?> ">
@@ -127,18 +126,29 @@
 			</a>
 		</section>
 
-		<section class="volunteering__insert">
-			<p> <?= __(get_field('volunteering_section_1')['volunteering_insert'], 'clinicoeurs') ?> </p>
-		</section>
+		<div class="volunteering__bg">
+			<img src="<?= get_site_url() . "/wp-content/uploads/2023/08/banderole4.svg"?>" alt="">
+			<section class="volunteering__insert">
+			<h3 class="sro"> Nous avons tous un talent </h3>
+				<a href="">
+					<p> <?= __(get_field('volunteering_section_1')['volunteering_insert'], 'clinicoeurs') ?> </p>
+				</a>
+			</section>
+			<img src="<?= get_site_url() ."/wp-content/uploads/2023/08/banderole4.svg"?>" alt="">
+		</div>
+
 
 		<section class="product__section product">
-			<h2 class="product__title">
-				<?= __(get_field('product_section')['section_title'], 'clinicoeurs') ?>
-			</h2>
-			<a class="product__link--more" href="<?= __(get_field('product_section')['section_link'], 'clinicoeurs') ?>"
-			   title="<?= __(get_field('product_section')['section_link_text'], 'clinicoeurs') ?>">
-				<?= __(get_field('product_section')['section_link_text'], 'clinicoeurs') ?>
-			</a>
+			<div class="product__container">
+				<h2 class="product__title">
+					<?= __(get_field('product_section')['section_title'], 'clinicoeurs') ?>
+				</h2>
+				<a target="_blank" class="product__link--more" href="<?= __(get_field('product_section')['section_link'], 'clinicoeurs') ?>"
+				   title="<?= __(get_field('product_section')['section_link_text'], 'clinicoeurs') ?>">
+					<?= __(get_field('product_section')['section_link_text'], 'clinicoeurs') ?>
+				</a>
+			</div>
+
 
 			<div class="product__container">
 				<?php
@@ -153,11 +163,11 @@
 					$product->the_post();
 					?>
 
-					<a class="product__link--product" href="<?= __(get_field('category_link'), 'clinicoeurs') ?>"
+					<a target="_blank" class="product__link--product" href="<?= __(get_field('category_link'), 'clinicoeurs') ?>"
 					   title="<?= __(get_field('category_link_title'), 'clinicoeurs') ?>">
 						<article class="product__card product__card--<?= get_field('card_color') ?> ">
 							<img srcset="<?= wp_get_attachment_image_srcset(get_field('category_image')) ?>" src="<?= image(get_field('category_image'))['image_url'] ?>"
-								 alt="<?= __(image(get_field('category_image'))['alt_text'], 'clinicoeurs') ?>">
+								 alt="<?= __(image(get_field('category_image'))['alt_text'], 'clinicoeurs') ?>" sizes="(min-width: 250px) 250px">
 							<h3><?= __(get_the_title(), 'clinicoeurs') ?></h3>
 						</article>
 					</a>
@@ -191,7 +201,11 @@
 								<?= get_the_title() ?>
 							</h3>
 							<img class="item__img" srcset="<?= wp_get_attachment_image_srcset(get_field('article')['article_image']) ?>" src="<?= image(get_field('article')['article_image'])['image_url'] ?>"
-								 alt="<?= __(image(get_field('article')['article_image'])['alt_text'], 'clinicoeurs') ?>">
+								 alt="<?= __(image(get_field('article')['article_image'])['alt_text'], 'clinicoeurs') ?>"
+								 sizes="(max-width: 480px) 300px,
+						 (max-width: 1280px) 400px,
+						 (min-width: 1281px) 500px"
+							>
 
 							<p class="item__date">
 								<?= get_the_date() ?>
@@ -210,7 +224,7 @@
 		</div>
 
 		<section class="testimonials testimonials_section">
-			<h2>
+			<h2 class="testimonials__title">
 				<?= __(get_field('testimonials_section')['section_title'], 'clinicoeurs') ?>
 			</h2>
 
@@ -220,32 +234,43 @@
 					'post_type' => 'temoignage',
 					'posts_per_page' => 3,
 			]); ?>
-
-			<?php // Lancer la boucle pour afficher chaque poste
-			if ($testimonials->have_posts()): while ($testimonials->have_posts()):
-				$testimonials->the_post();
-				?>
-				<article class="job__card">
-					<img src="<?= image(get_field('symbol'))['image_url'] ?>"
-						 alt="">
-					<h3>
-						<?= get_the_title() ?>
-					</h3>
-					<p> <?= get_the_content() ?> </p>
-
-				</article>
-			<?php endwhile; else: ?>
-				<p> Aucune nouvelle pour l'instant </p>
-			<?php endif;
-			wp_reset_query(); ?>
+			<div class="testimonials__container">
+				<?php // Lancer la boucle pour afficher chaque poste
+				if ($testimonials->have_posts()): while ($testimonials->have_posts()):
+					$testimonials->the_post();
+					?>
+					<article class="testimonials__card">
+						<h3 class="sro">
+							<?= get_the_title() ?>
+						</h3>
+						<blockquote>&laquo;&nbsp;<?= get_the_content() ?>&nbsp;&raquo;</blockquote>
+						<div class="testimonials__sub-container">
+							<img src="<?= image(get_field('symbol'))['image_url'] ?>"
+								 alt="">
+							<p>
+								<?= get_the_title() ?>
+							</p>
+						</div>
+					</article>
+				<?php endwhile; else: ?>
+					<p> Aucune nouvelle pour l'instant </p>
+				<?php endif;
+				wp_reset_query(); ?>
+			</div>
+			<a target="_blank" href="<?= get_field("testimonials_section")['articles_link'] ?>"><?= get_field("testimonials_section")['articles_link_label'] ?></a>
 		</section>
 
 		<section class="sponsor sponsor__section">
-			<h2 class=""> <?= get_field('sponsor_section')['section_slogan'] ?> </h2>
+			<h2 class="sponsor__title"> <?= get_field('sponsor_section')['section_slogan'] ?> </h2>
 			<!-- N'oublie pas de mettre les alt dans l'admin ET de génerer toutes les tailles d'images -->
-			<?php foreach (get_field('sponsor_section')['sponsors_images'] as $sponsor): ?>
-				<img srcset=" <?= wp_get_attachment_image_srcset($sponsor['sponsor_image']) ?> " src="<?= wp_get_attachment_url($sponsor['sponsor_image']) ?>" alt="<?= __(get_post_meta($sponsor['sponsor_image'], '_wp_attachment_image_alt', true), 'clinicoeurs') ?>">
-			<?php endforeach; ?>
+			<div class="sponsor__container">
+				<?php foreach (get_field('sponsor_section')['sponsors_images'] as $sponsor): ?>
+					<img srcset=" <?= wp_get_attachment_image_srcset($sponsor['sponsor_image']) ?> " src="<?= wp_get_attachment_url($sponsor['sponsor_image']) ?>" alt="<?= __(get_post_meta($sponsor['sponsor_image'], '_wp_attachment_image_alt', true), 'clinicoeurs') ?>"
+						 sizes="(max-width: 767px) 60px,
+						 (max-width: 960px) 80px,
+						 (min-width: 961px) 100px">
+				<?php endforeach; ?>
+			</div>
 		</section>
 
 	</main>

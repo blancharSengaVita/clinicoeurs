@@ -1,3 +1,82 @@
 .testimonials {
+  margin-inline: $phoneMediumMarginSize;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    margin-block: 2rem;
+  @include mq(large-tablet){
+    margin-block: 6rem;
+    margin-block-end: 2rem;
+  }
 
+  &__title {
+    margin-block: 2rem;
+    @include mq(large-tablet){
+      margin-block-end: 3rem;
+    }
+  }
+
+  &__container {
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @include mq(large-tablet) {
+      margin-block-start: 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 2.5rem;
+    }
+  }
+
+  &__sub-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-block-start:  0.5rem;
+    @include mq(tablet) {
+      margin-block-start:  1rem;
+    }
+    & p {
+      margin: 0;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include mq(tablet) {
+    }
+
+    & blockquote {
+      margin: 0;
+      text-align: center;
+      font-size: 1em;
+      line-height: 125%;
+
+      @include mq(tablet) {
+        font-size: 1.5rem;
+        max-width: 400px;
+      }
+    }
+
+    & img {
+      width: 30px;
+    }
+
+    & h3 {
+      font-size: 1rem;
+      margin: 0;
+      @include mq(tablet) {
+        font-size: 1.25rem;
+      }
+    }
+  }
+  & a {
+    @include bigAnchor;
+    margin-block-start: 4rem;
+    text-align: center;
+  }
 }
