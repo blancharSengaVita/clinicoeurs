@@ -1,5 +1,6 @@
 <?php
 
+
 // Démarrer le système de sessions pour pouvoir afficher des messages de feedback venant des formulaires.
 if(session_status() === PHP_SESSION_NONE) session_start();
 
