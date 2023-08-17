@@ -75,7 +75,7 @@
 			<h2><?= __($content['section_title'], 'clinicoeurs') ?></h2>
 			<p><?= __($content['section_text'], 'clinicoeurs') ?></p>
 			<a href="<?= $content['section_link'] ?>" title="<?= __($content['section_link_title'], 'clinicoeurs') ?>"> <?= __($content['section_link_label'], 'clinicoeurs') ?> </a>
-			<img srcset="<?= $srcset ?>src="<?= $image_url ?>" alt="<?= __($alt_text, 'clinicoeurs') ?>">
+			<img srcset="<?= $srcset ?>" src="<?= $image_url ?>" alt="<?= __($alt_text, 'clinicoeurs') ?>">
 		</section>
 
 		<section class="volunteering">
