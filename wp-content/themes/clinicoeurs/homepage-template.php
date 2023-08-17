@@ -1,7 +1,7 @@
 <?php /* Template Name: Homepage template */ ?>
 <?php get_header(); ?>
 <?php if (have_posts()): while (have_posts()):the_post(); ?>
-	<main>
+	<main class="home">
 		<div class="hero">
 			<div class="title__container">
 				<img class="hero__shape hero__circle" src="<?= get_site_url() . "/wp-content/uploads/2023/07/Ellipse-12.svg" ?>" alt="">

@@ -1,181 +1,183 @@
 @import "../helpers/var";
 
-.hero {
-  position: relative;
-  //Margin
-  margin-block-start: calc($phoneLargeVerticalSpacer + 3rem) ;
-  margin-inline: $phoneMediumMarginSize;
-
-  //Display
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(3, auto);
-  row-gap: 1rem;
-  width: calc(100% - ($phoneMediumMarginSize*2));
-  //width: 280px;
-
-  @include mq(large-phone){
-    max-width: $maxWidthLargePhone;
-  }
-
-  @include mq(large-tablet){
-    max-width: $maxWidthLargeTablet;
-  }
-
-  @include mq(large-laptop){
-    max-width: $maxWidthLargeLaptop;
-  }
-
-
-  & .title__container {
-    grid-area: 1/1/2/4;
+.home{
+  .hero {
     position: relative;
-  }
+    //Margin
+    margin-block-start: calc($phoneLargeVerticalSpacer + 3rem) ;
+    margin-inline: $phoneMediumMarginSize;
 
-  &__title {
-    position: relative;
-    z-index: 1;
-    font-size: 3rem;
-    width: 280px;
+    //Display
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, auto);
+    row-gap: 1rem;
+    width: calc(100% - ($phoneMediumMarginSize*2));
+    //width: 280px;
 
-    @include mq(large-phone) {
-      font-size: 4.5rem;
-      width: 420px;
+    @include mq(large-phone){
+      max-width: $maxWidthLargePhone;
     }
 
-    @include mq(large-tablet) {
-      font-size: 9rem;
-      width: 900px;
+    @include mq(large-tablet){
+      max-width: $maxWidthLargeTablet;
     }
 
     @include mq(large-laptop){
-      font-size: 13rem;
-      width: 1300px;
-    }
-  }
-
-  & em {
-    font-style: italic;
-    font-family: $serif;
-    font-size: 3.3rem;
-    @include mq(large-phone){
-      font-size: 5.5rem; //fontsize of title + 1/10 of is fontsize
+      max-width: $maxWidthLargeLaptop;
     }
 
-    @include mq(large-tablet){
-      font-size: 9.9rem; //fontsize of title + 1/10 of is fontsize
+
+    & .title__container {
+      grid-area: 1/1/2/4;
+      position: relative;
     }
 
-    @include mq(large-laptop){
-      font-size: 14.3rem; //fontsize of title + 1/10 of is fontsize
-    }
-  }
+    &__title {
+      position: relative;
+      z-index: 1;
+      font-size: 3rem;
+      width: 280px;
 
-  &__shape {
-    position: absolute;
-    width: 70px;
+      @include mq(large-phone) {
+        font-size: 4.5rem;
+        width: 420px;
+      }
 
-    @include mq(large-phone){
-      width: 110px;
-    }
+      @include mq(large-tablet) {
+        font-size: 9rem;
+        width: 900px;
+      }
 
-    @include mq(large-tablet){
-      width: 130px;
-    }
-
-  }
-
-  &__circle {
-    right: -190px;
-
-    @include mq(large-phone){
-      right: -250px;
+      @include mq(large-laptop){
+        font-size: 13rem;
+        width: 1300px;
+      }
     }
 
-    @include mq(large-tablet){
-      right: -450px;
-      top: 80px;
+    & em {
+      font-style: italic;
+      font-family: $serif;
+      font-size: 3.3rem;
+      @include mq(large-phone){
+        font-size: 5.5rem; //fontsize of title + 1/10 of is fontsize
+      }
+
+      @include mq(large-tablet){
+        font-size: 9.9rem; //fontsize of title + 1/10 of is fontsize
+      }
+
+      @include mq(large-laptop){
+        font-size: 14.3rem; //fontsize of title + 1/10 of is fontsize
+      }
     }
-  }
 
-  &__star {
-    bottom : 70px;
-    right: -40px;
+    &__shape {
+      position: absolute;
+      width: 70px;
 
-    @include mq(large-phone){
+      @include mq(large-phone){
+        width: 110px;
+      }
+
+      @include mq(large-tablet){
+        width: 130px;
+      }
+
+    }
+
+    &__circle {
+      right: -190px;
+
+      @include mq(large-phone){
+        right: -250px;
+      }
+
+      @include mq(large-tablet){
+        right: -450px;
+        top: 80px;
+      }
+    }
+
+    &__star {
       bottom : 70px;
-      right: -90px;
+      right: -40px;
+
+      @include mq(large-phone){
+        bottom : 70px;
+        right: -90px;
+      }
+
+      @include mq(large-tablet){
+        bottom : 70px;
+        right: -120px;
+      }
     }
 
-    @include mq(large-tablet){
-      bottom : 70px;
-      right: -120px;
-    }
-  }
-
-  &__rectangle {
-    bottom : 0px;
-    right: 85%;
-
-    @include mq(large-phone){
+    &__rectangle {
       bottom : 0px;
-      right: 70%;
+      right: 85%;
+
+      @include mq(large-phone){
+        bottom : 0px;
+        right: 70%;
+      }
+
+      @include mq(large-phone){
+        bottom : 0px;
+        right: 60%;
+      }
     }
 
-    @include mq(large-phone){
-      bottom : 0px;
-      right: 60%;
-    }
-  }
-
-  &__polygon {
-    bottom: 150px;
-    left: -65px;
-    @include mq(large-phone){
-      bottom: 120px;
+    &__polygon {
+      bottom: 150px;
       left: -65px;
-    }
-  }
-
-  &__container {
-    position: relative;
-    margin-block-start: 1.25rem;
-    grid-area: 2/2/3/7;
-    justify-self: end;
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__paragraphe {
-    z-index: 1;
-    line-height: 1.20rem;
-
-    @include mq(large-tablet) {
-      max-width: 360px;
-      font-size: 1.25rem;
-      line-height: 1.5rem;
+      @include mq(large-phone){
+        bottom: 120px;
+        left: -65px;
+      }
     }
 
-    @include mq(large-laptop) {
-      max-width: 550px;
-      font-size: 2rem;
-      line-height: 2.4rem;
+    &__container {
+      position: relative;
+      margin-block-start: 1.25rem;
+      grid-area: 2/2/3/7;
+      justify-self: end;
+      display: flex;
+      flex-direction: column;
     }
-  }
 
-  &__link {
-    z-index: 1;
-    padding-block-start: 1.5rem;
-    @include basicAnchor();
+    &__paragraphe {
+      z-index: 1;
+      line-height: 1.20rem;
 
-    @include mq(large-phone) {
-      font-size: 1.25rem;
+      @include mq(large-tablet) {
+        max-width: 360px;
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+      }
+
+      @include mq(large-laptop) {
+        max-width: 550px;
+        font-size: 2rem;
+        line-height: 2.4rem;
+      }
+    }
+
+    &__link {
+      z-index: 1;
+      padding-block-start: 1.5rem;
       @include basicAnchor();
-    }
 
-    @include mq(large-laptop) {
-      font-size: 2rem;
-      @include basicAnchor();
+      @include mq(large-phone) {
+        font-size: 1.25rem;
+        @include basicAnchor();
+      }
+
+      @include mq(large-laptop) {
+        font-size: 2rem;
+        @include basicAnchor();
+      }
     }
   }
 }

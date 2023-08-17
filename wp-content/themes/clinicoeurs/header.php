@@ -19,7 +19,7 @@
 		<a class="header__logo logo" href="<?= home_url() ?>">
 			<div class="logo__container">
 				<img class="logo__image" title="Vers la page d'accueil" src="<?= image(get_field('logo'))['image_url'] ?>" alt="<?= image(get_field('logo'))['alt_text'] ?>">
-				<p class="logo__text"><?= __(get_the_title(), 'clinicoeurs'); ?></p>
+				<p class="logo__text"><?= get_bloginfo(); ?></p>
 			</div>
 		</a>
 
