@@ -1,35 +1,37 @@
 @import "../helpers/var.scss";
 
-.services {
-  width: calc(100% - $phoneMediumMarginSize*2);
-  max-width: 1300px;
-  margin-block-start: 5rem;
-  margin-inline: $phoneMediumMarginSize;
+.home {
+  .services {
+    width: calc(100% - $phoneMediumMarginSize*2);
+    max-width: 1300px;
+    margin-block-start: 5rem;
+    margin-inline: $phoneMediumMarginSize;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  &__title {
-    font-size: $phoneH2Size;
-    margin: 0;
-    @include mq(tablet) {
-      font-size: $tabletH2Size;
-      display: none;
+    &__title {
+      font-size: $phoneH2Size;
+      margin: 0;
+      @include mq(tablet) {
+        font-size: $tabletH2Size;
+        display: none;
+      }
     }
-  }
 
-  & em {
-    font-size: 115%;
-  }
+    & em {
+      font-size: 115%;
+    }
 
-  &__container {
-    width: 100%;
-    @include mq('tablet') {
-      margin-block-start: $phoneXXLargeVerticalSpacer;
-      display: grid;
-      grid-template-columns: auto auto;
-      column-gap: 2rem;
+    &__container {
+      width: 100%;
+      @include mq('tablet') {
+        margin-block-start: $phoneXXLargeVerticalSpacer;
+        display: grid;
+        grid-template-columns: auto auto;
+        column-gap: 2rem;
+      }
     }
   }
 }

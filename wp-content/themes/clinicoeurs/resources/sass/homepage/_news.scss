@@ -1,117 +1,119 @@
 @import "../helpers/var";
-.news {
-  width: calc(100% - $phoneMediumMarginSize*2);
-  margin-block-start: 4rem;
-  padding-inline: $phoneMediumMarginSize;
-      max-width: $maxWidthLargeTablet;
+.home{
+  .news {
+    width: calc(100% - $phoneMediumMarginSize*2);
+    margin-block-start: 4rem;
+    padding-inline: $phoneMediumMarginSize;
+    max-width: $maxWidthLargeTablet;
 
-  &__background{
-    margin-block-start: 5rem;
+    &__background{
+      margin-block-start: 5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $pastelGreen;
+      width: 100%;
+      @include mq(large-tablet){
+      }
+    }
+
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: $pastelGreen;
-    width: 100%;
-    @include mq(large-tablet){
-    }
-  }
 
-  display: flex;
-  flex-direction: column;
-
-  &__title {
-    align-self: end;
-    margin-block-start: 1rem;
-    margin-block-end: 1.5rem;
-    @include mq(large-tablet){
-      margin-block-end: 2.5rem;
-    }
-  }
-
-  &__container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    @include mq (large-tablet){
-      display: grid;
-      grid-template-columns: repeat(2, auto);
-      align-items: start;
-      column-gap: 2rem;
-    }
-
-    @include mq (laptop){
-      display: grid;
-      grid-template-columns: repeat(2, auto);
-      align-items: start;
-      column-gap: 4rem;
-    }
-  }
-
-  &__item {
-
-    & img {
-      aspect-ratio: 1;
-      margin-block-start: 1.5rem;
-    }
-
-    & + &  {
-      margin-block-start: 2.5rem;
+    &__title {
+      align-self: end;
+      margin-block-start: 1rem;
+      margin-block-end: 1.5rem;
       @include mq(large-tablet){
-        margin-block-start: 0rem;
+        margin-block-end: 2.5rem;
       }
     }
 
-    & h3 {
-      margin-block-start: 0;
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      @include mq (large-tablet){
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        align-items: start;
+        column-gap: 2rem;
+      }
+
+      @include mq (laptop){
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        align-items: start;
+        column-gap: 4rem;
+      }
+    }
+
+    &__item {
+
+      & img {
+        aspect-ratio: 1;
+        margin-block-start: 1.5rem;
+      }
+
+      & + &  {
+        margin-block-start: 2.5rem;
+        @include mq(large-tablet){
+          margin-block-start: 0rem;
+        }
+      }
+
+      & h3 {
+        margin-block-start: 0;
+        @include mq(large-tablet){
+          font-size: 2rem;
+        }
+      }
+
+      & p {
+        width: auto;
+        max-width: 300px;
+      }
+
+      @include mq(large-phone){
+        & img {
+          aspect-ratio: 3/2;
+          margin-block-start: 1.5rem;
+          width: 400px;
+          object-position: 0% 10%;
+        }
+
+        & p {
+          width: auto;
+          max-width: 400px;
+        }
+      }
+
       @include mq(large-tablet){
-        font-size: 2rem;
-      }
-    }
+        & img {
+          aspect-ratio: 3/2;
+          margin-block-start: 1.5rem;
+          width: 400px;
+        }
 
-    & p {
-      width: auto;
-      max-width: 300px;
-    }
-
-    @include mq(large-phone){
-      & img {
-        aspect-ratio: 3/2;
-        margin-block-start: 1.5rem;
-        width: 400px;
-        object-position: 0% 10%;
+        & p {
+          width: auto;
+          max-width: 400px;
+        }
       }
 
-      & p {
-        width: auto;
-        max-width: 400px;
-      }
-    }
+      @include mq(laptop){
+        & img {
+          aspect-ratio: 3/2;
+          margin-block-start: 1.5rem;
+          width: 500px;
+        }
 
-    @include mq(large-tablet){
-      & img {
-        aspect-ratio: 3/2;
-        margin-block-start: 1.5rem;
-        width: 400px;
-      }
-
-      & p {
-        width: auto;
-        max-width: 400px;
-      }
-    }
-
-    @include mq(laptop){
-      & img {
-        aspect-ratio: 3/2;
-        margin-block-start: 1.5rem;
-        width: 500px;
-      }
-
-      & p {
-        width: auto;
-        max-width: 500px;
+        & p {
+          width: auto;
+          max-width: 500px;
+        }
       }
     }
   }
