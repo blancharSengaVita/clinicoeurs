@@ -107,10 +107,9 @@ $phoneMediumLineHeight: 125%;
 $phoneH2LineHeight: 125%;
 $phoneLineHeight : 125%;
 
-//TITLE
+//TITLE (homepage)
 $phoneH2Size: 2.5rem;
 $phoneH3Size: 1.875rem;
-
 
 $largePhoneH2Size: 3rem;
 $largePhoneH3Size: 2rem;
@@ -120,7 +119,6 @@ $tabletH3Size: 2rem;
 
 $laptopH3Size: 2.5rem;
 
-//$largephoneH2Size: 2.5rem;
 
 //MARGIN
 $phoneSmallMarginSize: 1rem;
@@ -157,3 +155,25 @@ $phoneMediumVerticalSpacer: 1rem;
 $phoneLargeVerticalSpacer: 2rem;
 $phoneXLargeVerticalSpacer: 3rem;
 $phoneXXLargeVerticalSpacer: 4rem;
+
+
+//TITLE (otherPage)
+$phoneH2Size-notHome: 3rem;
+$phoneH3Size-notHome: 1.875rem;
+
+
+$largePhoneH2Size-notHome: 3rem;
+$largePhoneH3Size-notHome: 2rem;
+
+
+$tabletH2Size-notHome: 5rem;
+$tabletH3Size-notHome: 2rem;
+
+$laptopH3Size-notHome: 2.5rem;
+
+
+//TAGLINE (otherPage)
+$phoneTaglineSize: 1.25rem;
+$largePhoneTaglineSize: 1.5rem;
+$tabletTaglineSize: 1.75rem;
+$laptopTaglineSize: 2rem;

@@ -7,13 +7,13 @@
 			$hero_image = get_field('hero_image');
 			$hero_title = get_field('hero_title');
 			$hero_tagline = get_field('hero_tagline');
-			$image_srcset = wp_get_attachment_image_srcset($hero_image);
 			$image_url = wp_get_attachment_url($hero_image);
 			?>
 
-			<img class="hero__image" srcset="<?= $image_srcset ?>" src="<?= $image_url ?>" alt=""
-				 sizes="100vw">
-			<h2 class="hero__title"><?= $hero_title ?></h2>
+			<div class="hero__container">
+					<img class="hero__image" src="<?= $image_url ?>" alt="" sizes="100vw">
+					<h2 class="hero__title"><?= $hero_title ?></h2>
+			</div>
 			<p class="hero__tagline"><?= $hero_tagline ?></p>
 		</section>
 
@@ -56,8 +56,7 @@
 				$title = __(get_field('form_title'), 'clinicoeurs');
 				?>
 
-<!--				<h2 class="sro"> Formulaire de contact </h2>-->
-				<p class="form__title"> <?= $title ?> </p>
+				<h2 class="form__title"> <?= $title ?> </h2>
 
 				<?php if ($feedback): ?>
 					<div class="success"">
@@ -70,9 +69,9 @@
 					</div>
 				<?php endif; ?>
 
-				<form action="<?= esc_url(admin_url('admin-post.php')); ?>" method="POST" class="contact">
-					<fieldset class="contact__info">
-						<div class="contact__container ">
+				<form action="<?= esc_url(admin_url('admin-post.php')); ?>" method="POST" class="form">
+					<fieldset class="form__info">
+						<div class="form__container ">
 							<div class="field">
 								<label for="firstname" class="field__label">Votre prénom</label>
 								<input type="text" name="firstname" id="firstname" class="field__input"/>
@@ -104,7 +103,7 @@
 							<?php endif; ?>
 						</div>
 					</fieldset>
-					<div class="contact__footer">
+					<div class="form__footer">
 						<input type="hidden" name="action" value="clinicoeurs_contact_form"/>
 						<input type="hidden" name="contact_nonce" value="<?= wp_create_nonce('clinicoeurs_contact_form'); ?>"/>
 						<button class="contact__submit" type="submit">Envoyer</button>

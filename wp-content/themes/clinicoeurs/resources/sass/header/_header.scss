@@ -49,7 +49,7 @@
   }
 
   @include mq(large-laptop){
-    max-width: calc($maxWidthLargeLaptop + 200px);
+    //max-width: calc($maxWidthLargeLaptop + 200px);
     padding-right: $largeLaptopMediumMarginSize;
     padding-left: $largeLaptopMediumMarginSize;
     width: calc(100% - ($largeLaptopMediumMarginSize*2));

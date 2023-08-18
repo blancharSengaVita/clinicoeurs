@@ -1,0 +1,88 @@
+@import "../helpers/var";
+
+.contact {
+  .hero {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__container {
+      position: relative;
+      margin-block-end: 1.25rem;
+
+      .hero__image {
+        width: auto;
+        max-width: 100%;
+
+        @include mq(phone){
+          min-height: 120px;
+          opacity: 50%;
+        }
+
+        @include mq(tablet){
+          width: 100%;
+          //max-width: $maxWidthLargeTablet;
+        }
+
+        @include mq(Laptop){
+          width: 100%;
+          max-width: 1400px;
+        }
+
+        //@include mq(){
+        //  //width: 100%;
+        //  max-width: $maxWidthLargeLaptop;
+        //}
+      }
+
+      .hero__title {
+        @include mq(phone){
+          max-width: 320px;
+          width: auto;
+          font-size: $phoneH2Size-notHome;
+        }
+
+        @include mq(large-phone){
+          max-width: initial;
+          width: 100%;
+          font-size: $largePhoneH2Size-notHome;
+        }
+
+        @include mq(large-tablet){
+          font-size: $tabletH2Size-notHome;
+        }
+
+
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+      }
+    }
+
+    .hero__tagline {
+      padding-inline: $phoneMediumMarginSize;
+      max-width: 30rem;
+      text-align: center;
+
+      @include mq(tablet){
+        max-width: calc(48rem - 1px);
+        font-size: $phoneTaglineSize;
+      }
+
+
+      @include mq(large-tablet){
+        max-width: calc(48rem - 1px);
+        font-size: $largePhoneTaglineSize;
+      }
+
+      @include mq(large-Laptop){
+        font-size: $laptopTaglineSize;
+      }
+    }
+
+  }
+}
