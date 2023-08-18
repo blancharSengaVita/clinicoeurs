@@ -6,6 +6,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-block-end: 1.5rem;
+
+    @include mq(large-phone) {
+      margin-block-end: 2rem;
+    }
+
+    @include mq(tablet) {
+      margin-block-end: 3rem;
+    }
+
+    @include mq(laptop) {
+      margin-block-end: 4rem;
+    }
 
     &__container {
       position: relative;
@@ -15,41 +28,36 @@
         width: auto;
         max-width: 100%;
 
-        @include mq(phone){
+        @include mq(phone) {
           min-height: 120px;
           opacity: 50%;
         }
 
-        @include mq(tablet){
+        @include mq(tablet) {
           width: 100%;
           //max-width: $maxWidthLargeTablet;
         }
 
-        @include mq(Laptop){
+        @include mq(Laptop) {
           width: 100%;
           max-width: 1400px;
         }
-
-        //@include mq(){
-        //  //width: 100%;
-        //  max-width: $maxWidthLargeLaptop;
-        //}
       }
 
       .hero__title {
-        @include mq(phone){
+        @include mq(phone) {
           max-width: 320px;
           width: auto;
           font-size: $phoneH2Size-notHome;
         }
 
-        @include mq(large-phone){
+        @include mq(large-phone) {
           max-width: initial;
           width: 100%;
           font-size: $largePhoneH2Size-notHome;
         }
 
-        @include mq(large-tablet){
+        @include mq(large-tablet) {
           font-size: $tabletH2Size-notHome;
         }
 
@@ -68,18 +76,22 @@
       max-width: 30rem;
       text-align: center;
 
-      @include mq(tablet){
+      @include mq(tablet) {
+        margin-block-start: 1rem;
         max-width: calc(48rem - 1px);
         font-size: $phoneTaglineSize;
       }
 
-
-      @include mq(large-tablet){
+      @include mq(large-tablet) {
         max-width: calc(48rem - 1px);
         font-size: $largePhoneTaglineSize;
       }
 
-      @include mq(large-Laptop){
+      @include mq(laptop){
+        margin-block-start: 2rem;
+      }
+
+      @include mq(large-Laptop) {
         font-size: $laptopTaglineSize;
       }
     }

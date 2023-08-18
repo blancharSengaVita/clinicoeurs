@@ -1,11 +1,121 @@
-.contact__information{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: $phoneMediumMarginSize;
+@import "../helpers/var";
 
-  & .address{
+.contact {
+  .information {
+    &__title {
+      margin-block-end: 1rem;
+      font-size: 2rem;
+      //@include mq(large-tablet){
+      //  font-size: 3rem;
+      //}
+    }
 
+    &__section {
+      margin-block-end: 1.5rem;
+      width: 100%;
+    }
+  }
 
+  .contact__information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: $phoneMediumMarginSize;
+    @include mq(large-tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 2fr);
+      align-items: start;
+    }
+
+    & .address {
+      //margin-block-end: 2rem;
+
+      &__container--info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        @include mq(large-phone) {
+          display: grid;
+          grid-template-columns: repeat(2, 2fr);
+          grid-template-rows: repeat(2, 2fr);
+        }
+      }
+
+      &__container--image {
+        & img {
+          width: 100%;
+          max-width: initial;
+          @include mq(tablet) {
+            max-width: 500px;
+          }
+
+          @include mq(large-tablet) {
+            max-width: 400px;
+          }
+
+          @include mq(large-tablet) {
+            max-width: 500px;
+          }
+        }
+      }
+
+      &__link {
+        font-weight: normal;
+      }
+    }
+
+    & form {
+      @include mq(large-tablet){
+        margin-inline-start: 4rem;
+      }
+      & .field {
+        cursor: pointer;
+        display: grid;
+        margin-block-end: 1.5rem;
+
+        & label {
+          cursor: pointer;
+          margin-block-end: .5rem;
+        }
+
+        & input {
+          cursor: pointer;
+          height: 1.7rem;
+          border: solid 1.5px $color;
+          padding-inline: 0.5rem;
+          padding-block: 0.1rem;
+          font-family: $sans-serif;
+          color: $color;
+          font-size: 1rem;
+
+          &::placeholder {
+            font-family: $sans-serif;
+            color: $color;
+          }
+        }
+
+        & textarea {
+          cursor: pointer;
+          padding-inline: 0.5rem;
+          padding-block: 0.1rem;
+          padding-block-start: 0.5rem;
+          border: solid 1.5px $color;
+          font-family: $sans-serif;
+          color: $color;
+          font-size: 1rem;
+        }
+      }
+
+      button[class="form__submit"] {
+        cursor: pointer;
+        font-family: $sans-serif;
+        background-color: $color;
+        color: $background-color;
+        padding: 0.75rem;
+        font-size: 1.25rem;
+      }
+    }
   }
 }

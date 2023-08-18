@@ -17,8 +17,8 @@
 			<p class="hero__tagline"><?= $hero_tagline ?></p>
 		</section>
 
-		<div class="contact__information">
-			<section class="address">
+		<div class="contact__information information">
+			<section class="address information__section">
 				<?php
 				$address = get_field('adress_section');
 				$title = __($address['title'], 'clinicoeurs');
@@ -33,22 +33,22 @@
 				$image_url = wp_get_attachment_url($image);
 				?>
 
-				<h2 class="address__title"><?= $title ?></h2>
+				<h2 class="information__title address__title"><?= $title ?></h2>
 				<div class="address__container">
-					<div class="address__sub-container address__sub-container--info">
-						<a target="_blank" href="https://www.google.com/maps?q=<?= urlencode($street) ?>" title="Ouvrir <?= $street ?> sur Google Maps"><?= $street ?></a>
-						<a target="_blank" href="https://www.google.com/search?q=<?= urlencode($city) ?>" title="En savoir plus sur <?= $city ?>"><?= $city ?></a>
-						<a target="_blank" href="tel:<?= $phone_number ?>" title="Appeler <?= $phone_number ?>"><?= $phone_number ?></a>
-						<a target="_blank" href="mailto:<?= $email ?>" title="Envoyer un mail à <?= $email ?>"><?= $email ?></a>
+					<div class="address__container--info">
+						<a class="address__link" target="_blank" href="https://www.google.com/maps?q=<?= urlencode($street) ?>" title="Ouvrir <?= $street ?> sur Google Maps"><?= $street ?></a>
+						<a class="address__link" target="_blank" href="https://www.google.com/search?q=<?= urlencode($city) ?>" title="En savoir plus sur <?= $city ?>"><?= $city ?></a>
+						<a class="address__link" target="_blank" href="tel:<?= $phone_number ?>" title="Appeler <?= $phone_number ?>"><?= $phone_number ?></a>
+						<a class="address__link" target="_blank" href="mailto:<?= $email ?>" title="Envoyer un mail à <?= $email ?>"><?= $email ?></a>
 					</div>
-					<div class="address__sub-container">
+					<div class="address__container--image">
 						<img src="<?= $image_url ?>" alt="<?= $image_alt ?>" srcset="<?= $image_srcset ?>" sizes="(max-width: 767px) 300px,
                 (max-width: 960px) 400px,
                 (min-width: 961px) 500px">
 					</div>
 				</div>
 			</section>
-			<section class="section__form">
+			<section class="form information__section">
 				<?php
 				$feedback = clinicoeurs_session_get('clinicoeurs_contact_form_feedback') ?? false;
 				$errors = clinicoeurs_session_get('clinicoeurs_contact_form_errors') ?? [];
@@ -56,7 +56,7 @@
 				$title = __(get_field('form_title'), 'clinicoeurs');
 				?>
 
-				<h2 class="form__title"> <?= $title ?> </h2>
+
 
 				<?php if ($feedback): ?>
 					<div class="success"">
@@ -69,12 +69,13 @@
 					</div>
 				<?php endif; ?>
 
-				<form action="<?= esc_url(admin_url('admin-post.php')); ?>" method="POST" class="form">
+				<form action="<?= esc_url(admin_url('admin-post.php')); ?>" method="POST" class="form__form">
+					<h2 class="form__title information__title"> <?= $title ?> </h2>
 					<fieldset class="form__info">
 						<div class="form__container ">
 							<div class="field">
 								<label for="firstname" class="field__label">Votre prénom</label>
-								<input type="text" name="firstname" id="firstname" class="field__input"/>
+								<input type="text" name="firstname" id="firstname" class="field__input" />
 								<?php if ($errors['firstname'] ?? null): ?>
 									<p class="field__error"><?= $errors['firstname']; ?></p>
 								<?php endif; ?>
@@ -106,7 +107,7 @@
 					<div class="form__footer">
 						<input type="hidden" name="action" value="clinicoeurs_contact_form"/>
 						<input type="hidden" name="contact_nonce" value="<?= wp_create_nonce('clinicoeurs_contact_form'); ?>"/>
-						<button class="contact__submit" type="submit">Envoyer</button>
+						<button class="form__submit" type="submit">Envoyer</button>
 					</div>
 				</form>
 			</section>
