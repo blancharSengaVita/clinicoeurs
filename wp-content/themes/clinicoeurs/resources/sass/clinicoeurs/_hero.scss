@@ -1,0 +1,7 @@
+@import "../helpers/var";
+
+.clinicoeurs {
+  .hero {
+    @include templateForHeroClass();
+  }
+}
