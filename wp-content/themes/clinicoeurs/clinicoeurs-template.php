@@ -24,7 +24,7 @@
 				<p class="location__text"><?= $text ?></p>
 			</article>
 		</section>
-		<section class="gallery">
+		<section class="gallery clinicoeurs__gallery">
 			<?php
 			$gallery = get_field('gallery');
 			$title = $gallery['title'];

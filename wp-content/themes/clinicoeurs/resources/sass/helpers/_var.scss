@@ -105,7 +105,7 @@ $largeLaptopfontSize: 1.25rem;
 //LINE HEIGHT
 $phoneMediumLineHeight: 125%;
 $phoneH2LineHeight: 125%;
-$phoneLineHeight : 125%;
+$phoneLineHeight : 133%;
 
 //TITLE (homepage)
 $phoneH2Size: 2.5rem;
@@ -237,7 +237,7 @@ $laptopTaglineSize: 2rem;
     .hero__title {
       @include mq(phone) {
         max-width: 400px;
-        width: 350px;
+        width: 320px;
         font-size: $phoneH2Size-notHome;
       }
 

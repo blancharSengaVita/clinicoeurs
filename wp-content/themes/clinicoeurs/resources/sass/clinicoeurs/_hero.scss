@@ -3,5 +3,6 @@
 .clinicoeurs {
   .hero {
     @include templateForHeroClass();
+    margin-block-end: 3rem;
   }
 }
