@@ -1,0 +1,27 @@
+@import "../helpers/var";
+
+.clinicoeurs {
+  & .gallery {
+    padding-inline: $phoneMediumMarginSize;
+    margin-block-end: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+      margin-block-end: 2rem;
+    }
+
+    & .picture__container {
+      display: grid;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    &__picture {
+      @include manageImageSizes();
+      object-position: 50% -10%;
+
+    }
+  }
+}

@@ -287,3 +287,28 @@ $laptopTaglineSize: 2rem;
   }
 }
 
+
+@mixin manageImageSizes(){
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  object-position: 65% 35%;
+
+
+  @include mq(large-phone) {
+    width: 400px;
+    height: 400px;
+  }
+
+  @include mq(tablet) {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  @include mq(tablet) {
+    max-width: 450px;
+    width: 100%;
+  }
+}

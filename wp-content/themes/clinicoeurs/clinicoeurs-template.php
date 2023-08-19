@@ -30,10 +30,10 @@
 			$title = $gallery['title'];
 			$pictures = $gallery['pictures'];
 			?>
-			<div class="gallery__container">
+			<div class="gallery__container title__container">
 				<h2 class="gallery__title"><?= $title ?></h2>
 			</div>
-			<div class="gallery__container">
+			<div class="gallery__container picture__container">
 				<?php if ($pictures && count($pictures) > 0): ?>
 					<?php foreach ($pictures as $picture): ?>
 <!--					--><?php //dd($picture) ?>
