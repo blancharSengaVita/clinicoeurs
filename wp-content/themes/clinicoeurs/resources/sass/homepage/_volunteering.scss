@@ -3,7 +3,8 @@
 .home {
   .volunteering__bg {
     @include mq(tablet){
-    margin-block: 9rem;
+    margin-block-start: 7.5rem;
+    margin-block-end: 7.5rem;
   }
     margin-block: 5rem;
     width: 100vw;
