@@ -8,8 +8,8 @@
 	</ul>
 	<div class="footer__container">
 		<p>© <?= get_bloginfo() ?></p>
-		<a href="#">Mention légales</a>
-		<p>Fait par <a href="https://blanchar.be" title="vers blanchar.be">BLANCHAR !</a></p>
+		<p><a class="footer__legal-link" href="#">Mention légales</a></p>
+		<p>Fait par <a href="https://blanchar.be" title="vers blanchar.be">BLANCHAR </a></p>
 	</div>
 	<div class="footer__container footer__contact">
 		<?php

@@ -203,11 +203,11 @@ $laptopTaglineSize: 2rem;
   }
 
   @include mq(tablet) {
-    margin-block-end: 3rem;
+    margin-block-end: 6rem;
   }
 
-  @include mq(laptop) {
-    margin-block-end: 4rem;
+  @include mq(large-tablet) {
+    margin-block-end: 9rem;
   }
 
   &__container {
@@ -248,9 +248,14 @@ $laptopTaglineSize: 2rem;
       }
 
       @include mq(large-tablet) {
+        max-width: 950px;
         font-size: $tabletH2Size-notHome;
       }
 
+      @include mq(laptop) {
+        max-width: none;
+        font-size: $tabletH2Size-notHome;
+      }
 
       text-align: center;
       position: absolute;
@@ -275,10 +280,11 @@ $laptopTaglineSize: 2rem;
     @include mq(large-tablet) {
       max-width: calc(48rem - 1px);
       font-size: $largePhoneTaglineSize;
+      margin-block-start: 3rem;
     }
 
     @include mq(laptop){
-      margin-block-start: 2rem;
+      margin-block-start: 3rem;
     }
 
     @include mq(large-Laptop) {

@@ -10,5 +10,10 @@
     @include mq(phone){
       font-size: 2rem;
     }
+
+    @include mq(large-tablet){
+      margin: 9rem;
+      margin-block-end: 12rem;
+    }
   }
 }

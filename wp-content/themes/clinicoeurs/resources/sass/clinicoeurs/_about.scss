@@ -1,11 +1,11 @@
 .clinicoeurs {
-  & .call-to-action {
-    font-size: 3rem;
-  }
 
   .about {
     padding-inline: $phoneMediumMarginSize;
-    margin-block-end: 6rem;
+    margin-block-end: 4rem;
+    @include mq(large-tablet){
+      margin-block-end: 10rem;
+    }
 
     & h3 {
       margin-block-end: 1rem;
