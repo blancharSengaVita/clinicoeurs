@@ -9,6 +9,14 @@
   justify-self: center;
   height: auto;
 
+  @include mq(tablet) {
+    margin-inline-end: 2rem;
+  }
+
+  &:last-child{
+    margin-inline-end: 0;
+  }
+
   @include mq(large-tablet) {
     aspect-ratio: 3/5;
   }

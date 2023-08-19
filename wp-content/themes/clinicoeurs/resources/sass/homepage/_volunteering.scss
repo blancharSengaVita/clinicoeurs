@@ -28,14 +28,14 @@
         display: grid;
         grid-template-columns: repeat(2, auto);
         grid-template-rows:repeat(2, auto);
-        column-gap: 2rem;
+        column-gap: 0rem;
       }
 
       @include mq(laptop) {
         display: grid;
         grid-template-columns: repeat(4, auto);
         //grid-template-rows:repeat(2, auto);
-        column-gap: 2rem;
+        column-gap: 0;
       }
     }
 
