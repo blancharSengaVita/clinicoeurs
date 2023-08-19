@@ -3,6 +3,8 @@
 .clinicoeurs {
   .hero {
     @include templateForHeroClass();
-    margin-block-end: 2rem;
+    @include mq(large-tablet){
+      margin-block-end: 5rem;
+    }
   }
 }

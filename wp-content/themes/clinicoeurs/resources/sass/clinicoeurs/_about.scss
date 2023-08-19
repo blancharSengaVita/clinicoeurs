@@ -1,12 +1,25 @@
 .clinicoeurs {
+  & .call-to-action {
+    font-size: 3rem;
+  }
+
   .about {
     padding-inline: $phoneMediumMarginSize;
-    margin-block-end: 3rem;
+    margin-block-end: 6rem;
 
-    & h2 {
+    & h3 {
       margin-block-end: 1rem;
       font-size: 2rem;
       max-width: none;
+      align-self: center;
+      justify-self: start;
+
+      @include mq(large-tablet){
+        text-align: start;
+        max-width: 200px;
+        margin-block-end: 0rem;
+        margin-inline-end: 2rem;
+      }
     }
 
     & article {
@@ -24,6 +37,10 @@
       & p {
         max-width: none;
         line-height: $phoneLineHeight;
+
+        @include mq(tablet){
+          max-width: 700px;
+        }
       }
     }
 

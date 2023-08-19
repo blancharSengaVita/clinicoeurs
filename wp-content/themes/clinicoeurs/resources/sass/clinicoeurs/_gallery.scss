@@ -10,18 +10,30 @@
 
     &__title {
       margin-block-end: 2rem;
+      font-size: 3rem;
     }
 
     & .picture__container {
       display: grid;
       gap: 1rem;
       align-items: center;
+      @include mq(tablet){
+        grid-template-columns: repeat(2, auto);
+      }
+
+      @include mq(large-tablet){
+        grid-template-columns: repeat(3, auto);
+      }
     }
 
     &__picture {
       @include manageImageSizes();
-      object-position: 50% -10%;
+      object-position: 50% 0;
 
+      @include mq(tablet) {
+        width: 300px;
+        height: 300px;
+      }
     }
   }
 }

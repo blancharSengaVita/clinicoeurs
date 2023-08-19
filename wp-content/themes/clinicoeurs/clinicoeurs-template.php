@@ -4,6 +4,7 @@
 	<main class="clinicoeurs">
 		<?php get_template_part('_hero-template'); ?>
 		<section class="clinicoeurs__about about">
+			<h2 class="sro" ><?= get_field('story')['title'] ?></h2>
 			<article class="about__story story">
 				<?php
 				$story = get_field('story');
@@ -11,7 +12,7 @@
 				$text = $story['text'];
 				?>
 
-				<h2 class="story__title"><?= $title ?></h2>
+				<h3 class="story__title"><?= $title ?></h3>
 				<p class="story__text"><?= $text ?></p>
 			</article>
 			<article class="about__location location">
@@ -20,7 +21,7 @@
 				$title = $location['title'];
 				$text = $location['text'];
 				?>
-				<h2 class="location__title"><?= $title ?></h2>
+				<h3 class="location__title"><?= $title ?></h3>
 				<p class="location__text"><?= $text ?></p>
 			</article>
 		</section>
@@ -43,14 +44,14 @@
 						$url = wp_get_attachment_image_url($image_id);
 						$srcset = wp_get_attachment_image_srcset($image_id);
 						?>
-						<img class="gallery__picture" src="<?= $url ?>" alt="<?= $alt ?>" srcset="<?= $srcset?>">
+						<img class="gallery__picture" src="<?= $url ?>" alt="<?= $alt ?>" srcset="<?= $srcset?>" sizes="(max-width: 767px) 300px, (min-width: 768px) 400px, 400px">
 					<?php endforeach; ?>
 				<?php else: ?>
 					<p> il n'y a rien à afficher </p>
 				<?php endif ?>
 			</div>
 		</section>
-		<a href="" class="call-to-action" title=""></a>
+		<a href="" class="call-to-action" title=""> <?= get_field('call_to_action')['text'] ?> </a>
 	</main>
 <?php endwhile; endif; ?>
 <?php get_footer(); ?>
