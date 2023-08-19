@@ -2,6 +2,9 @@
 
 .home {
   .volunteering__bg {
+    @include mq(tablet){
+    margin-block: 9rem;
+  }
     margin-block: 5rem;
     width: 100vw;
     display: flex;

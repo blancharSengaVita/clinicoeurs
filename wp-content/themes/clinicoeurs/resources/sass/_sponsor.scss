@@ -2,6 +2,9 @@
 .sponsor {
   max-width: $maxWidthLargeTablet;
   padding-inline: $phoneMediumMarginSize;
+  @include mq(large-tablet){
+    margin-block-end: 7rem;
+  }
 
   &__title {
     margin-block-end: 2rem;

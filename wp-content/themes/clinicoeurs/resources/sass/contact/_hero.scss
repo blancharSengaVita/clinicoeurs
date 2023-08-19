@@ -16,8 +16,8 @@
       margin-block-end: 3rem;
     }
 
-    @include mq(laptop) {
-      margin-block-end: 4rem;
+    @include mq(large-tablet) {
+      margin-block-end: 4.5rem;
     }
 
     &__container {
