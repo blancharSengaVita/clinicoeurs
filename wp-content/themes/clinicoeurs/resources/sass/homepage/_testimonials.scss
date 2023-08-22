@@ -7,8 +7,8 @@
     align-items: center;
     margin-block: 2rem;
     @include mq(large-tablet){
-      margin-block: 7rem;
-      //margin-block-end: 5rem;
+      margin-block-start: 7rem;
+      margin-block-end: 4rem;
     }
 
     &__title {

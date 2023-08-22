@@ -3,7 +3,7 @@
   max-width: $maxWidthLargeTablet;
   padding-inline: $phoneMediumMarginSize;
   @include mq(large-tablet){
-    margin-block-end: 7rem;
+    margin-block-end: 6rem;
   }
 
   &__title {
