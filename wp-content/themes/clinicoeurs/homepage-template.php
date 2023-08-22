@@ -75,7 +75,7 @@
 			<h2><?= __($content['section_title'], 'clinicoeurs') ?></h2>
 			<p><?= __($content['section_text'], 'clinicoeurs') ?></p>
 			<a href="<?= $content['section_link'] ?>" title="<?= __($content['section_link_title'], 'clinicoeurs') ?>"> <?= __($content['section_link_label'], 'clinicoeurs') ?> </a>
-			<img srcset="<?= $srcset ?>" src="<?= $image_url ?>" alt="<?= __($alt_text, 'clinicoeurs') ?>">
+			<img srcset="<?= $srcset ?>" src="<?= $image_url ?>" alt="<?= __($alt_text, 'clinicoeurs') ?>" sizes="(max-width: 767px) 300px, (max-width: 768px) 400px, 450px">
 		</section>
 
 		<section class="volunteering">
@@ -101,16 +101,16 @@
 						<img class="style-svg" style="color: red;" src="<?= wp_get_attachment_image_url($content['job_symbol']) ?>" alt="">
 						<h3 class=""><?= get_the_title(); ?> </h3>
 						<div class="job__container">
-							<dd> <?= __($content['job_location']['label'], 'clinicoeurs') ?> </dd>
-							<dt> <?= __($content['job_location']['location'], 'clinicoeurs') ?> </dt>
+							<dd><?= __($content['job_location']['label'], 'clinicoeurs') ?></dd>
+							<dt><?= __($content['job_location']['location'], 'clinicoeurs') ?></dt>
 						</div>
 						<div class="job__container">
-							<dd> <?= __($content['job_schedule']['label'], 'clinicoeurs') ?>  </dd>
-							<dt> <?= __($content['job_schedule']['schedule'], 'clinicoeurs') ?> </dt>
+							<dd><?= __($content['job_schedule']['label'], 'clinicoeurs') ?></dd>
+							<dt><?= __($content['job_schedule']['schedule'], 'clinicoeurs') ?></dt>
 						</div>
 						<div class="job__container">
-							<dd> <?= __($content['job_description']['label'], 'clinicoeurs') ?> </dd>
-							<dt>  <?= __($content['job_description']['description'], 'clinicoeurs') ?> </dt>
+							<dd><?= __($content['job_description']['label'], 'clinicoeurs') ?></dd>
+							<dt><?= __($content['job_description']['description'], 'clinicoeurs') ?></dt>
 						</div>
 					</article>
 

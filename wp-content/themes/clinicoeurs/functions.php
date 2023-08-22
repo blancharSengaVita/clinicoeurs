@@ -167,18 +167,18 @@ function image(string $image_id){
 }
 
 //image size
-add_image_size('w500', 300, 9999, false);
-add_image_size('w400', 300, 9999, false);
+add_image_size('w500', 500, 9999, false);
+add_image_size('w400', 400, 9999, false);
 add_image_size('w300', 300, 9999, false);
-add_image_size('w250', 300, 9999, false);
-add_image_size('w150', 300, 9999, false);
-add_image_size('w100', 300, 9999, false);
-add_image_size('w80', 300, 9999, false);
-add_image_size('w60', 300, 9999, false);
+add_image_size('w250', 250, 9999, false);
+add_image_size('w150', 150, 9999, false);
+add_image_size('w100', 100, 9999, false);
+add_image_size('w80', 80, 9999, false);
+add_image_size('w60', 60, 9999, false);
 
 add_image_size('h70', 9999, 70, false);
-add_image_size('h55', 9999, 70, false);
-add_image_size('h40', 9999, 70, false);
+add_image_size('h55', 9999, 55, false);
+add_image_size('h40', 9999, 40, false);
 
 //disable automatic tag p on wysiwyg content
 function disable_wpautop(): void {
