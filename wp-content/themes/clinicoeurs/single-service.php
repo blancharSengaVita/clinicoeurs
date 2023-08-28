@@ -5,11 +5,11 @@
 	<section class="single-service__section section">
 		<?php
 		$section = get_field('section_1');
-		$title = $section['title'];
-		$text = $section['text'];
+		$title = __($section['title'], 'clinicoeurs');
+		$text = __($section['text'], 'clinicoeurs');
 		$image_id = $section['image'];
 		$image_srcset = wp_get_attachment_image_srcset($image_id);
-		$image_alt = __(get_post_meta($image_id, '_wp_attachment_image_alt', true));
+		$image_alt = __(get_post_meta($image_id, '_wp_attachment_image_alt', true), 'clinicoeurs');
 		$image_url = wp_get_attachment_url($image_id);
 		?>
 		<img class="section__image" srcset="<?= $image_srcset ?>" src="<?= $image_url ?>" alt="<?= $image_alt ?>">
@@ -21,11 +21,11 @@
 	<section class="single-service__section--reversed section">
 		<?php
 		$section = get_field('section_2');
-		$title = $section['title'];
-		$text = $section['text'];
+		$title = __($section['title'], 'clinicoeurs');
+		$text = __($section['text'], 'clinicoeurs');
 		$image_id = $section['image'];
 		$image_srcset = wp_get_attachment_image_srcset($image_id);
-		$image_alt = __(get_post_meta($image_id, '_wp_attachment_image_alt', true));
+		$image_alt = __(get_post_meta($image_id, '_wp_attachment_image_alt', true), 'clinicoeurs');
 		$image_url = wp_get_attachment_url($image_id);
 		?>
 		<img class="section__image" srcset="<?= $image_srcset ?>" src="<?= $image_url ?>" alt="<?= $image_alt ?>">
