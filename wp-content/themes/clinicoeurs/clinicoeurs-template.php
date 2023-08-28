@@ -51,7 +51,7 @@
 				<?php endif ?>
 			</div>
 		</section>
-		<a href="" class="call-to-action" title=""> <?= get_field('call_to_action')['text'] ?> </a>
+		<a href="<?= get_home_url() ?>/contact/" class="call-to-action" title="aller vers la page de contact"> <?= get_field('call_to_action')['text'] ?> </a>
 	</main>
 <?php endwhile; endif; ?>
 <?php get_footer(); ?>

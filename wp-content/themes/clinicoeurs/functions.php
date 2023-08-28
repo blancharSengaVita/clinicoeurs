@@ -51,6 +51,15 @@ function clinicoeurs_register_custom_post_types(): void
 		'menu_icon' => 'dashicons-testimonial', // https://developer.wordpress.org/resource/dashicons/#pets,
 		'supports' => ['title', 'editor'],
 	]);
+
+	register_post_type('service', [
+		'label' => 'Nos Services',
+		'description' => 'Liste de Nos Services',
+		'public' => true,
+		'menu_position' => 20,
+		'menu_icon' => 'dashicons-admin-tools', // https://developer.wordpress.org/resource/dashicons/#pets,
+		'supports' => ['title', 'editor'],
+	]);
 }
 
 add_action('init', 'clinicoeurs_register_custom_post_types');

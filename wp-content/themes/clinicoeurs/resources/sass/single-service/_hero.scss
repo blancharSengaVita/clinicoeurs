@@ -1,0 +1,7 @@
+@import "../helpers/var";
+
+.single-service {
+  .hero {
+    @include templateForHeroClass();
+  }
+}
