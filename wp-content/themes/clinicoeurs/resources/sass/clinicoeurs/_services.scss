@@ -1,0 +1,66 @@
+@import "../helpers/var";
+.clinicoeurs{
+  & .services{
+    width: 100%;
+    max-width: $maxWidthLargeTablet;
+
+    @include mq(large-phone){
+      margin-block-end: 6rem;
+      max-width: $maxWidthLargePhone;
+    }
+
+    @include mq(large-tablet){
+      margin-block-end: 6rem;
+      max-width: 930px;
+    }
+
+    &__link{
+      text-decoration: none;
+      font-weight: normal;
+    }
+
+    & .card:hover {
+      transition: background-color 0.3ms;
+      background-color: $pastelRed;
+      padding: 1rem;
+    }
+
+    & .card {
+      transition: background-color 0.3ms;
+      border-radius: 30px;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+
+      &__title{
+        margin: 0;
+        margin-block-end: 0.375rem;
+
+      }
+      &__exercpt{
+        overflow: hidden;
+        max-width: initial;
+      }
+
+      &__symbole {
+        width: 50px;
+        margin-inline-end: 1rem;
+      }
+
+      &__arrow {
+        font-size: 3rem;
+        font-weight: 300;
+        align-self: center;
+        height: 100%;
+      }
+
+      .card__container--symbol{
+        display: flex;
+        align-items: center;
+        margin-inline-start: 2rem;
+      }
+    }
+  }
+}

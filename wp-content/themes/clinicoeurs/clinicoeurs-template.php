@@ -3,8 +3,40 @@
 <?php if (have_posts()): while (have_posts()):the_post(); ?>
 	<main class="clinicoeurs">
 		<?php get_template_part('_hero-template'); ?>
+
+		<section class="clinicoeurs__services services">
+			<?php
+			$service_section = get_field('service_section');
+			$services = $service_section['services'];
+			?>
+			<ul class="services__container">
+				<?php foreach ($services as $service): ?>
+					<?php
+					$name = $service['name'];
+					$exercpt = $service['exercpt'];
+					$symbole_url = $service['symbol'];
+					$single_url = $service['slug']
+					?>
+					<li class="services__item">
+						<a class="services__link" href="<?= get_home_url() . $single_url ?>"  title="aller vers la page <?=$name?>">
+							<article class="service__card card">
+								<div class="card__container">
+									<h3 class="card__title"> <?=$name?> </h3>
+									<p class="card__excerpt"> <?=$exercpt?> </p>
+								</div>
+								<div class="card__container--symbol">
+									<img class="card__symbole" src="<?=$symbole_url?>" alt="">
+									<span class="card__arrow">></span>
+								</div>
+							</article>
+						</a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</section>
+
 		<section class="clinicoeurs__about about">
-			<h2 class="sro" ><?= get_field('story')['title'] ?></h2>
+			<h2 class="sro"><?= get_field('story')['title'] ?></h2>
 			<article class="about__story story">
 				<?php
 				$story = get_field('story');
@@ -37,14 +69,14 @@
 			<div class="gallery__container picture__container">
 				<?php if ($pictures && count($pictures) > 0): ?>
 					<?php foreach ($pictures as $picture): ?>
-<!--					--><?php //dd($picture) ?>
+						<!--					--><?php //dd($picture) ?>
 						<?php
 						$image_id = $picture;
 						$alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
 						$url = wp_get_attachment_image_url($image_id);
 						$srcset = wp_get_attachment_image_srcset($image_id);
 						?>
-						<img class="gallery__picture" src="<?= $url ?>" alt="<?= $alt ?>" srcset="<?= $srcset?>" sizes="(max-width: 767px) 300px, (min-width: 768px) 400px, 400px">
+						<img class="gallery__picture" src="<?= $url ?>" alt="<?= $alt ?>" srcset="<?= $srcset ?>" sizes="(max-width: 767px) 300px, (min-width: 768px) 400px, 400px">
 					<?php endforeach; ?>
 				<?php else: ?>
 					<p> il n'y a rien à afficher </p>
