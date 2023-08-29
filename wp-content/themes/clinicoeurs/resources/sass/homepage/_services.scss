@@ -14,9 +14,9 @@
     &__title {
       font-size: $phoneH2Size;
       margin: 0;
-      @include mq(tablet) {
-        font-size: $tabletH2Size;
-        display: none;
+
+      @include mq('tablet'){
+        font-size: 4rem;
       }
     }
 
@@ -27,13 +27,32 @@
     &__container {
       width: 100%;
       @include mq('tablet') {
-        margin-block-start: $phoneXXLargeVerticalSpacer;
+        margin-block-start: $phoneLargeVerticalSpacer;
         display: grid;
-        grid-template-columns: auto auto;
-        column-gap: 2rem;
+        grid-template-columns: auto;
       }
     }
   }
 }
 
+.js-enabled .home {
 
+  & .services__title {
+    font-size: $phoneH2Size;
+    margin: 0;
+    @include mq(tablet) {
+      font-size: $tabletH2Size;
+      display: none;
+    }
+  }
+
+  & .services__container {
+    width: 100%;
+    @include mq('tablet') {
+      margin-block-start: $phoneXXLargeVerticalSpacer;
+      display: grid;
+      grid-template-columns: auto auto;
+      column-gap: 2rem;
+    }
+  }
+}

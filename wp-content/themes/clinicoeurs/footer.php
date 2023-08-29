@@ -1,6 +1,16 @@
 <footer>
+	<h2 class="sro"> Navigation de pied de page </h2>
 	<ul class="footer__container">
+		<h3 class="footer__title"> À propos de nous </h3>
 		<?php foreach (clinicoeurs_get_menu('footer') as $link): ?>
+			<li class="footer__link">
+				<a href="<?= $link->href; ?>" class="footer__url"><?= $link->label; ?></a>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+	<ul class="footer__container">
+		<h3 class="footer__title"> Nos services </h3>
+		<?php foreach (clinicoeurs_get_menu('services') as $link): ?>
 			<li class="footer__link">
 				<a href="<?= $link->href; ?>" class="footer__url"><?= $link->label; ?></a>
 			</li>

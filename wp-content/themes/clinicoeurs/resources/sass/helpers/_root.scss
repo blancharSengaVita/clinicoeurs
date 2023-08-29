@@ -7,6 +7,14 @@
   color: $color;
   line-height: 125%;
 }
+*:focus-visible {
+  transition: none;
+  outline: #EF6C5D solid 3px;
+}
+
+*::selection {
+  background-color: $pastelRed;
+}
 
 body {
   background-color: $background-color;
@@ -86,7 +94,17 @@ h3 {
 
 
 a {
+  transform-origin: center;
+  transition:  200ms ease-in-out;
   @include basicAnchor;
+}
+
+a:hover {
+  transform-origin: center;
+  transition: 200ms ease-in-out;
+  font-family: $serif;
+  font-style: oblique;
+  font-size: 140%;
 }
 
 section {

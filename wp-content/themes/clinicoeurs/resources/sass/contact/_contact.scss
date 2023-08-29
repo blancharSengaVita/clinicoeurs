@@ -9,4 +9,16 @@
     margin: 0;
     padding: 0;
   }
+
+  .error, .field__error {
+    color : #EF6C5D;
+  }
+
+  .error, .success{
+    margin-block-end: 1rem;
+  }
+
+  .success{
+    color: #3ADA6B;
+  }
 }

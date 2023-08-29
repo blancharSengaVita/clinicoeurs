@@ -2,18 +2,20 @@
 
 .home {
   .volunteering__bg {
-    @include mq(tablet){
-    margin-block-start: 7.5rem;
-    margin-block-end: 7.5rem;
-  }
+    @include mq(tablet) {
+      margin-block-start: 7.5rem;
+      margin-block-end: 7.5rem;
+    }
     margin-block: 5rem;
     width: 100vw;
     display: flex;
     flex-direction: column;
+
     & img {
       width: 100vw;
       color: $pastelYellow;
     }
+
     & img + section + img {
       transform: rotate(180deg);
     }
@@ -66,7 +68,7 @@
         text-decoration-thickness: 0.375rem;
       }
 
-      @include mq(large-tablet){
+      @include mq(large-tablet) {
         margin-block: 3rem 2rem;
       }
     }
@@ -78,7 +80,7 @@
       display: flex;
       justify-content: center;
 
-      & img{
+      & img {
         width: 100%;
         height: auto;
       }
@@ -89,20 +91,22 @@
         margin: 0;
         font-size: 1.5rem;
         max-width: 700px;
+
         & strong {
           position: relative;
           z-index: 6;
           text-decoration: underline;
           text-decoration-thickness: 0.1rem;
         }
-        @include mq(large-tablet){
-          padding-inline:3rem;
+
+        @include mq(large-tablet) {
+          padding-inline: 3rem;
           font-size: 2rem;
         }
 
-        @include mq(laptop){
+        @include mq(laptop) {
           max-width: 900px;
-          padding-inline:3rem;
+          padding-inline: 3rem;
           font-size: 2.5rem;
         }
       }
@@ -111,7 +115,29 @@
         text-align: center;
         text-decoration: none;
         font-weight: initial;
+
+        & strong {
+          transition: 200ms ease-in-out;
+        }
       }
+
+      & a:hover {
+        display: block;
+        text-decoration: none;
+        font-weight: initial;
+        font-size: initial;
+        font-style: initial;
+        font-family: $sans-serif;
+
+        & strong:hover {
+          transition: 200ms ease-in-out;
+          font-family: $serif;
+          font-style: oblique;
+          font-size: 140%;
+        }
+
+      }
+
     }
   }
 }

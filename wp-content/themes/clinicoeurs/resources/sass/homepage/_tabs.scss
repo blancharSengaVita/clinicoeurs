@@ -3,7 +3,7 @@
 .tabs {
   display: none;
   @include mq(tablet) {
-    display: initial;
+    display: none;
   }
 
   @include mq(tablet) {
@@ -14,6 +14,12 @@
     @include mq('phone') {
       display: none;
     }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   &__item {
@@ -47,12 +53,16 @@
     flex-direction: column;
     align-items: center;
     margin-block-start: $phoneLargeVerticalSpacer;
-    @include mq('tablet') {
-      margin-block-start: 0;
+
+    @include mq(tablet){
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto auto;
-      column-gap: 1rem;
+      grid-template-columns:  minmax(auto, 300px) minmax(auto, 300px);
+    }
+
+    @include mq(large-tablet){
+      display: grid;
+      grid-template-columns: minmax(auto, 450px) minmax(auto, 450px);
+      column-gap: 2rem;
     }
 
     & img {
@@ -89,7 +99,7 @@
       margin-block-start: $phoneSmallMarginSize;
       text-align: center;
       @include mq(tablet){
-        margin-block-start: 0;
+        margin-block-start: 1rem;
         text-align: initial;
       }
     }
@@ -138,10 +148,34 @@
   }
 }
 
+
 @include mq(tablet){
+  .js-enabled .tabs {
+    display: none;
+    @include mq(tablet) {
+      display: initial;
+    }
+  }
+
   .js-enabled .tabs__content {
     height: 0;
     overflow: hidden;
+    @include mq('tablet') {
+      margin-block-start: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      column-gap: 1rem;
+    }
+
+    & > * {
+      margin-block-start: $phoneSmallMarginSize;
+      text-align: center;
+      @include mq(tablet){
+        margin-block-start: 0;
+        text-align: initial;
+      }
+    }
   }
 
   .tabs__content.active {

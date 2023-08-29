@@ -64,6 +64,7 @@
   }
 
   &--mobile{
+    overscroll-behavior: contain;
     display: initial;
     @include mq(tablet){
       display: none;

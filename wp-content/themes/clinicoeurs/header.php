@@ -7,7 +7,13 @@
 	<meta name="keywords" content="clowns hospitalier"/>
 	<link rel="stylesheet" href="<?= get_stylesheet_directory_uri() . '/public/css/site.css'; ?>"/>
 	<script src="<?= get_stylesheet_directory_uri() . '/public/js/main.js'; ?>" defer></script>
-	<title> <?= __(get_the_title(), 'clinicoeurs'); ?> </title>
+
+	<?php if ($_SERVER['PHP_SELF'] === '/fr/' || $_SERVER['PHP_SELF'] === '/en/' || $_SERVER['PHP_SELF'] === '/nl/'): ?>
+		<title><?= __(get_the_title(), 'clinicoeurs'); ?> </title>
+	<?php else: ?>
+		<title><?= __(get_the_title(), 'clinicoeurs'); ?> - Clinicoeurs de la Salm</title>
+	<?php endif; ?>
+
 	<link rel="apple-touch-icon" sizes="180x180" href="<?= image(get_field('logo'))['image_url'] ?>">
 	<link rel="icon" type="image/png" sizes="32x32" href="<?= image(get_field('logo'))['image_url'] ?>">
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= image(get_field('logo'))['image_url'] ?>">

@@ -12,7 +12,7 @@ Template Name: Custom Hero Template
 	?>
 
 	<div class="hero__container">
-		<img class="hero__image" src="<?= $image_url ?>" alt="" sizes="100vw">
+		<img class="hero__image" src="<?= $image_url ?>" alt="">
 		<h2 class="hero__title"><?= $hero_title ?></h2>
 	</div>
 	<p class="hero__tagline"><?= $hero_tagline ?></p>

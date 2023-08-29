@@ -66,6 +66,7 @@ add_action('init', 'clinicoeurs_register_custom_post_types');
 
 register_nav_menu('main', 'Navigation principale du site web (en-tête)');
 register_nav_menu('footer', 'Navigation de pied de page');
+register_nav_menu('services', 'Navigation des services');
 
 function clinicoeurs_get_menu(string $location, ?array $attributes = []): array
 {

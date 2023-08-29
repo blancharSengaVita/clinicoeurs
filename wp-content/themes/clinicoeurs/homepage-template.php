@@ -20,10 +20,6 @@
 
 		</div>
 
-		<!-- ZONE D'EXERCICES POUR FAIRE DES ONGLET ACCESSIBLE -->
-
-
-		<!-- MON FOREACH POUR LA BOUCLE DES NOMS -->
 		<Section class="services">
 			<h2 class="services__title"><?= __(get_field('service_section')['section_title'], 'clinicoeurs') ?></h2>
 			<h2 class="sro"><?= __(get_field('service_section')['section_title'], 'clinicoeurs') ?></h2>
@@ -57,7 +53,7 @@
 							<img class="content__image" srcset="<?= $srcset ?>" src="<?= $image_url ?>" alt="<?= __($alt_text, 'clinicoeurs') ?>" sizes="(max-width: 767px) 300px, (min-width: 768px) 400px, 400px">
 							<h3 class="content__title">  <?= __($services['service']['service_title'], 'clinicoeurs') ?> </h3>
 							<p class="content__paragraph"> <?= __($services['service']['service_text'], 'clinicoeurs') ?> </p>
-							<a target="_blank" class="content__link" href="<?= __($services['service']['service_link'], 'clinicoeurs') ?>" title="<?= __($services['service']['service_link_title'], 'clinicoeurs') ?>">  <?= __($services['service']['service_link_label'], 'clinicoeurs') ?> </a>
+							<a  target="_blank" class="content__link content__link--section-<?= $content_id ?>" href="<?= get_home_url() . $services['service']['service_link'] ?>" title="<?= __($services['service']['service_link_title'], 'clinicoeurs') ?>">  <?= __($services['service']['service_link_label'], 'clinicoeurs') ?> </a>
 						</article>
 						<?php $content_id++; endforeach; ?>
 				</div>
@@ -72,9 +68,10 @@
 			$srcset = wp_get_attachment_image_srcset($image_id);
 			$content = get_field('support_section');
 			?>
+
 			<h2><?= __($content['section_title'], 'clinicoeurs') ?></h2>
 			<p><?= __($content['section_text'], 'clinicoeurs') ?></p>
-			<a href="<?= $content['section_link'] ?>" title="<?= __($content['section_link_title'], 'clinicoeurs') ?>"> <?= __($content['section_link_label'], 'clinicoeurs') ?> </a>
+			<a href="<?= get_home_url() . $content['section_link'] ?>" title="<?= __($content['section_link_title'], 'clinicoeurs') ?>"> <?= __($content['section_link_label'], 'clinicoeurs') ?> </a>
 			<img srcset="<?= $srcset ?>" src="<?= $image_url ?>" alt="<?= __($alt_text, 'clinicoeurs') ?>" sizes="(max-width: 767px) 300px, (max-width: 768px) 400px, 450px">
 		</section>
 
@@ -100,18 +97,18 @@
 					<article class="job job__card--<?= $content['card_color'] ?> ">
 						<img class="style-svg" style="color: red;" src="<?= wp_get_attachment_image_url($content['job_symbol']) ?>" alt="">
 						<h3 class=""><?= get_the_title(); ?> </h3>
-						<div class="job__container">
+						<dl class="job__container">
 							<dd><?= __($content['job_location']['label'], 'clinicoeurs') ?></dd>
 							<dt><?= __($content['job_location']['location'], 'clinicoeurs') ?></dt>
-						</div>
-						<div class="job__container">
+						</dl>
+						<dl class="job__container">
 							<dd><?= __($content['job_schedule']['label'], 'clinicoeurs') ?></dd>
 							<dt><?= __($content['job_schedule']['schedule'], 'clinicoeurs') ?></dt>
-						</div>
-						<div class="job__container">
+						</dl>
+						<dl class="job__container">
 							<dd><?= __($content['job_description']['label'], 'clinicoeurs') ?></dd>
 							<dt><?= __($content['job_description']['description'], 'clinicoeurs') ?></dt>
-						</div>
+						</dl>
 					</article>
 
 				<?php endwhile; else: ?>
@@ -127,14 +124,14 @@
 		</section>
 
 		<div class="volunteering__bg">
-			<img src="<?= get_site_url() . "/wp-content/uploads/2023/08/banderole4.svg"?>" alt="">
+			<img src="<?= get_site_url() . "/wp-content/uploads/2023/08/banderole4.svg" ?>" alt="">
 			<section class="volunteering__insert">
-			<h3 class="sro"> Nous avons tous un talent </h3>
-				<a href="">
+				<h3 class="sro"> Nous avons tous un talent </h3>
+				<a href="<?= get_home_url() . '/contact/' ?>">
 					<p> <?= __(get_field('volunteering_section_1')['volunteering_insert'], 'clinicoeurs') ?> </p>
 				</a>
 			</section>
-			<img src="<?= get_site_url() ."/wp-content/uploads/2023/08/banderole4.svg"?>" alt="">
+			<img src="<?= get_site_url() . "/wp-content/uploads/2023/08/banderole4.svg" ?>" alt="">
 		</div>
 
 
@@ -166,8 +163,10 @@
 					<a target="_blank" class="product__link--product" href="<?= __(get_field('category_link'), 'clinicoeurs') ?>"
 					   title="<?= __(get_field('category_link_title'), 'clinicoeurs') ?>">
 						<article class="product__card product__card--<?= get_field('card_color') ?> ">
-							<img srcset="<?= wp_get_attachment_image_srcset(get_field('category_image')) ?>" src="<?= image(get_field('category_image'))['image_url'] ?>"
-								 alt="<?= __(image(get_field('category_image'))['alt_text'], 'clinicoeurs') ?>" sizes="(min-width: 250px) 250px">
+							<div>
+								<img srcset="<?= wp_get_attachment_image_srcset(get_field('category_image')) ?>" src="<?= image(get_field('category_image'))['image_url'] ?>"
+									 alt="<?= __(image(get_field('category_image'))['alt_text'], 'clinicoeurs') ?>" sizes="(min-width: 250px) 250px">
+							</div>
 							<h3><?= __(get_the_title(), 'clinicoeurs') ?></h3>
 						</article>
 					</a>
@@ -196,25 +195,27 @@
 					if ($recent_post->have_posts()): while ($recent_post->have_posts()):
 						$recent_post->the_post();
 						?>
-						<article class="news__item">
-							<h3 class="item__title">
-								<?= get_the_title() ?>
-							</h3>
-							<img class="item__img" srcset="<?= wp_get_attachment_image_srcset(get_field('article')['article_image']) ?>" src="<?= image(get_field('article')['article_image'])['image_url'] ?>"
-								 alt="<?= __(image(get_field('article')['article_image'])['alt_text'], 'clinicoeurs') ?>"
-								 sizes="(max-width: 480px) 300px,
+						<a href="<?= get_field('article')['article_link'] ?>">
+							<article class="news__item">
+								<h3 class="item__title">
+									<?= get_the_title() ?>
+								</h3>
+								<img class="item__img" srcset="<?= wp_get_attachment_image_srcset(get_field('article')['article_image']) ?>" src="<?= image(get_field('article')['article_image'])['image_url'] ?>"
+									 alt="<?= __(image(get_field('article')['article_image'])['alt_text'], 'clinicoeurs') ?>"
+									 sizes="(max-width: 480px) 300px,
 						 (max-width: 1280px) 400px,
 						 (min-width: 1281px) 500px"
-							>
+								>
 
-							<p class="item__date">
-								<?= get_the_date() ?>
-							</p>
+								<p class="item__date">
+									<?= get_the_date() ?>
+								</p>
 
-							<p class="item__exercpt">
-								<?= __(get_field('article')['article_summary'], 'clinicoeurs') ?>
-							</p>
-						</article>
+								<p class="item__exercpt">
+									<?= __(get_field('article')['article_summary'], 'clinicoeurs') ?>
+								</p>
+							</article>
+						</a>
 					<?php endwhile; else: ?>
 						<p> Aucune nouvelle pour l'instant </p>
 					<?php endif;
@@ -257,7 +258,7 @@
 				<?php endif;
 				wp_reset_query(); ?>
 			</div>
-			<a target="_blank" href="<?= get_field("testimonials_section")['articles_link'] ?>"><?= get_field("testimonials_section")['articles_link_label'] ?></a>
+			<a href="<?= get_home_url() . '/contact/' ?>"><?= get_field("testimonials_section")['articles_link_label'] ?></a>
 		</section>
 
 		<section class="sponsor sponsor__section">

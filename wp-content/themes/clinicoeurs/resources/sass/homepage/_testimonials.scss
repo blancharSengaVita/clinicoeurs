@@ -78,6 +78,7 @@
     }
     & a {
       @include bigAnchor;
+      font-weight: initial;
       margin-block-start: 4rem;
       text-align: center;
     }

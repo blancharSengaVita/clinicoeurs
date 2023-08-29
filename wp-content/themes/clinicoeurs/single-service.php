@@ -17,7 +17,9 @@
 		<p class="section__text"> <?= $text ?></p>
 	</section>
 
-	<div class="section__bg">
+<!--		--><?php //dd(get_field('section_2')['color']) ?>
+
+	<div class="section__bg section__bg--<?= get_field('section_2')['color']  ?>">
 	<section class="single-service__section single-service__section--reversed section">
 		<?php
 		$section = get_field('section_2');
@@ -34,7 +36,7 @@
 	</section>
 	</div>
 
-		<section class=" single-service__section--member single-service__section--color-<?= 'zer' ?> section--member ">
+		<section class=" single-service__section--member section--member--<?= get_field('section_2')['color']  ?> section--member ">
 			<?php
 			$section = get_field('member_section');
 			$title = $section['title'];

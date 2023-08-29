@@ -5,6 +5,7 @@
 		<?php get_template_part('_hero-template'); ?>
 
 		<section class="clinicoeurs__services services">
+			<h3 class="sro"><?= $service_section = get_field('service_section')['title']; ?></h3>
 			<?php
 			$service_section = get_field('service_section');
 			$services = $service_section['services'];
@@ -36,7 +37,7 @@
 		</section>
 
 		<section class="clinicoeurs__about about">
-			<h2 class="sro"><?= get_field('story')['title'] ?></h2>
+			<h2 class="sro"><?= get_field('about_us') ?></h2>
 			<article class="about__story story">
 				<?php
 				$story = get_field('story');

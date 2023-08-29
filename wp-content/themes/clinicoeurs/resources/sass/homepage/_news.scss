@@ -1,19 +1,36 @@
 @import "../helpers/var";
-.home{
+
+.home {
   .news {
-    width: calc(100% - $phoneMediumMarginSize*2);
+    width: calc(100% - $phoneMediumMarginSize * 2);
     margin-block-start: 4rem;
     padding-inline: $phoneMediumMarginSize;
     max-width: $maxWidthLargeTablet;
 
-    &__background{
+    & a {
+      text-decoration: none;
+      font-family: $sans-serif;
+      font-style: initial;
+      font-size: initial;
+      font-weight: initial;
+
+      &:hover h3 {
+        text-decoration: underline;
+        font-family: $serif;
+        font-style: italic;
+        font-weight: bold;
+      }
+    }
+
+
+    &__background {
       margin-block-start: 5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       background-color: $pastelGreen;
       width: 100%;
-      @include mq(large-tablet){
+      @include mq(large-tablet) {
       }
     }
 
@@ -24,7 +41,7 @@
       align-self: end;
       margin-block-start: 1rem;
       margin-block-end: 1.5rem;
-      @include mq(large-tablet){
+      @include mq(large-tablet) {
         margin-block-end: 2.5rem;
       }
     }
@@ -35,14 +52,14 @@
       align-items: center;
       justify-content: center;
 
-      @include mq (large-tablet){
+      @include mq(large-tablet) {
         display: grid;
         grid-template-columns: repeat(2, auto);
         align-items: start;
         column-gap: 2rem;
       }
 
-      @include mq (laptop){
+      @include mq(laptop) {
         display: grid;
         grid-template-columns: repeat(2, auto);
         align-items: start;
@@ -57,16 +74,16 @@
         margin-block-start: 1.5rem;
       }
 
-      & + &  {
+      & + & {
         margin-block-start: 2.5rem;
-        @include mq(large-tablet){
+        @include mq(large-tablet) {
           margin-block-start: 0rem;
         }
       }
 
       & h3 {
         margin-block-start: 0;
-        @include mq(large-tablet){
+        @include mq(large-tablet) {
           font-size: 2rem;
         }
       }
@@ -76,7 +93,7 @@
         max-width: 300px;
       }
 
-      @include mq(large-phone){
+      @include mq(large-phone) {
         & img {
           aspect-ratio: 3/2;
           margin-block-start: 1.5rem;
@@ -90,7 +107,7 @@
         }
       }
 
-      @include mq(large-tablet){
+      @include mq(large-tablet) {
         & img {
           aspect-ratio: 3/2;
           margin-block-start: 1.5rem;
@@ -103,7 +120,7 @@
         }
       }
 
-      @include mq(laptop){
+      @include mq(laptop) {
         & img {
           aspect-ratio: 3/2;
           margin-block-start: 1.5rem;

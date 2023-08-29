@@ -3,6 +3,18 @@
 .single-service {
   @include templateForMainClass();
 
+  @each $color, $hexCode in $map-colors {
+    .section__bg--#{$color} { //insertion du nom de classe
+      background-color: $hexCode; //correspondance
+    }
+  }
+
+  @each $color, $hexCode in $map-colors {
+    .section--member--#{$color} { //insertion du nom de classe
+      background-color: $hexCode; //correspondance
+    }
+  }
+
   img {
     object-position: top;
   }
@@ -15,18 +27,18 @@
   & .single-service__section {
     margin-block-end: 2rem;
 
-    @include mq(large-tablet){
+    @include mq(large-tablet) {
       margin-block-end: 6rem;
     }
   }
 
-  .section__bg{
-    background-color: $pastelGreen;
+  .section__bg {
+    //background-color: $pastelGreen;
     width: 100%;
     display: flex;
     justify-content: center;
     margin-block-end: 2rem;
-    @include mq(large-tablet){
+    @include mq(large-tablet) {
       margin-block-end: 6rem;
     }
   }
@@ -58,14 +70,14 @@
 
     &--reversed {
       padding-block: 3rem;
-     @include mq(large-tablet){
-       padding-inline: $largeLaptopMediumMarginSize;
-       display: grid;
-       grid-template-columns: minmax(auto, calc($maxWidthLargeTablet - 200px - 400px - 2rem)) 400px;
-       grid-template-rows: auto 1fr;
-       column-gap: 4rem;
-       margin: 0;
-     }
+      @include mq(large-tablet) {
+        padding-inline: $largeLaptopMediumMarginSize;
+        display: grid;
+        grid-template-columns: minmax(auto, calc($maxWidthLargeTablet - 200px - 400px - 2rem)) 400px;
+        grid-template-rows: auto 1fr;
+        column-gap: 4rem;
+        margin: 0;
+      }
 
       & .section__image {
         margin-block-end: 2rem;
@@ -83,7 +95,6 @@
     }
 
     &--member {
-      background-color: $pastelGreen;
       padding: 2.5rem;
       aspect-ratio: auto;
       max-width: 200px;

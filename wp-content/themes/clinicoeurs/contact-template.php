@@ -11,7 +11,7 @@
 			?>
 
 			<div class="hero__container">
-					<img class="hero__image" src="<?= $image_url ?>" alt="" sizes="100vw">
+					<img class="hero__image" src="<?= $image_url ?>" alt="">
 					<h2 class="hero__title"><?= $hero_title ?></h2>
 			</div>
 			<p class="hero__tagline"><?= $hero_tagline ?></p>
@@ -58,18 +58,20 @@
 
 
 
-				<?php if ($feedback): ?>
-					<div class="success"">
-					<p>Merci&nbsp;! Votre message a bien été envoyé.</p>
-				<?php endif; ?>
 
-				<?php if ($errors): ?>
-					<div class="error">
-						<p>Attention&nbsp;! Merci de corriger les erreurs du formulaire.</p>
-					</div>
-				<?php endif; ?>
 
 				<form action="<?= esc_url(admin_url('admin-post.php')); ?>" method="POST" class="form__form">
+					<?php if ($feedback): ?>
+						<div class="success"">
+						<p>Merci&nbsp;! Votre message a bien été envoyé.</p>
+					<?php endif; ?>
+
+					<?php if ($errors): ?>
+						<div class="error">
+							<p>Attention&nbsp;! Merci de corriger les erreurs du formulaire.</p>
+						</div>
+					<?php endif; ?>
+
 					<h2 class="form__title information__title"> <?= $title ?> </h2>
 					<fieldset class="form__info">
 						<div class="form__container ">
