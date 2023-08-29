@@ -1,13 +1,7 @@
 import {enableJavaScript} from "./enableJs";
-
 enableJavaScript();
 
-import {displayTheMenuOnDesktop} from "./displayTheMenuOnDesktop";
-
-displayTheMenuOnDesktop.init();
-
 import {stikyHeader} from "./stikyHeader"
-
 stikyHeader.init();
 
 import {tabs} from "./tabs"

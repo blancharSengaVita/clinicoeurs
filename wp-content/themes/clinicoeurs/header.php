@@ -22,8 +22,6 @@
 				<p class="logo__text"><?= get_bloginfo(); ?></p>
 			</div>
 		</a>
-
-
 	</div>
 	<nav class="nav header__container menu menu--desktop display-none">
 		<h2 class="sro">Navigation principale</h2>
