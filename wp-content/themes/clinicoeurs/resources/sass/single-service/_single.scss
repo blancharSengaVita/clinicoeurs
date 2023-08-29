@@ -1,7 +1,109 @@
-.single-service{
+@import "../helpers/var";
+
+.single-service {
   @include templateForMainClass();
-  & section, &  p, & img, & h2, & h3{
+
+  img {
+    object-position: top;
+  }
+
+  & section, & p, & img, & h2, & h3 {
     margin: 0;
     padding: 0;
+  }
+
+  & .single-service__section {
+    margin-block-end: 2rem;
+
+    @include mq(large-tablet){
+      margin-block-end: 6rem;
+    }
+  }
+
+  .section__bg{
+    background-color: $pastelGreen;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-block-end: 2rem;
+    @include mq(large-tablet){
+      margin-block-end: 6rem;
+    }
+  }
+
+  .single-service__section {
+    @include mq(large-tablet) {
+      padding-inline: $largeLaptopMediumMarginSize;
+      display: grid;
+      grid-template-columns: 400px minmax(auto, calc($maxWidthLargeTablet - 200px - 400px - 2rem));
+      grid-template-rows: auto 1fr;
+      column-gap: 4rem;
+      margin-block-end: 6rem;
+    }
+
+    .section__image {
+      margin-block-end: 2rem;
+      @include mq('large-phone') {
+        margin-block-end: 2rem;
+        width: 400px;
+        height: 400px;
+      }
+
+      @include mq(large-tablet) {
+        grid-area: 1/1/-1/1;
+        margin: 0;
+      }
+    }
+
+
+    &--reversed {
+      padding-block: 3rem;
+     @include mq(large-tablet){
+       padding-inline: $largeLaptopMediumMarginSize;
+       display: grid;
+       grid-template-columns: minmax(auto, calc($maxWidthLargeTablet - 200px - 400px - 2rem)) 400px;
+       grid-template-rows: auto 1fr;
+       column-gap: 4rem;
+       margin: 0;
+     }
+
+      & .section__image {
+        margin-block-end: 2rem;
+        @include mq('large-phone') {
+          margin-block-end: 2rem;
+          width: 400px;
+          height: 400px;
+        }
+
+        @include mq(large-tablet) {
+          grid-area: 1/2/-1/2;
+          margin: 0;
+        }
+      }
+    }
+
+    &--member {
+      background-color: $pastelGreen;
+      padding: 2.5rem;
+      aspect-ratio: auto;
+      max-width: 200px;
+    }
+  }
+
+  & h3 {
+    margin-block-end: 1rem;
+  }
+
+  .section__text {
+    @include mq('large-phone') {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    @include mq(large-tablet) {
+      //display: grid;
+      //grid-template-columns: 400px minmax(100%, auto);
+      max-width: $maxWidthLargeTablet;
+    }
   }
 }

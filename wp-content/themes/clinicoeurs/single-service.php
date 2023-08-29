@@ -14,11 +14,11 @@
 		?>
 		<img class="section__image" srcset="<?= $image_srcset ?>" src="<?= $image_url ?>" alt="<?= $image_alt ?>">
 		<h3 class="section__title"> <?= $title ?></h3>
-		<p class="section_text"> <?= $text ?></p>
+		<p class="section__text"> <?= $text ?></p>
 	</section>
 
 	<div class="section__bg">
-	<section class="single-service__section--reversed section">
+	<section class="single-service__section single-service__section--reversed section">
 		<?php
 		$section = get_field('section_2');
 		$title = __($section['title'], 'clinicoeurs');
@@ -30,11 +30,11 @@
 		?>
 		<img class="section__image" srcset="<?= $image_srcset ?>" src="<?= $image_url ?>" alt="<?= $image_alt ?>">
 		<h3 class="section__title"><?= $title ?></h3>
-		<p class="section_text"><?= $text ?></p>
+		<p class="section__text"><?= $text ?></p>
 	</section>
 	</div>
 
-		<section class="single-service__section--member single-service__section--color-<?= 'zer' ?> section--member ">
+		<section class=" single-service__section--member single-service__section--color-<?= 'zer' ?> section--member ">
 			<?php
 			$section = get_field('member_section');
 			$title = $section['title'];
@@ -42,9 +42,11 @@
 			?>
 
 			<h3> <?= $title ?> </h3>
+			<p>
 			<?php foreach ($members as $member):?>
-				<p> <?= $member['name'] ?> </p>
+				<span><?= $member['name'] ?>, </span>
 			<?php endforeach;?>
+			</p>
 		</section>
 
 		<a href="<?= get_home_url() ?>/contact/" class="call-to-action" title="aller vers la page de contact"> <?= get_field('call_to_action')['text'] ?> </a>

@@ -55,3 +55,20 @@
   }
 }
 
+.menu {
+  &--desktop{
+    display: none;
+    @include mq(tablet){
+      display: initial;
+    }
+  }
+
+  &--mobile{
+    display: initial;
+    @include mq(tablet){
+      display: none;
+    }
+  }
+
+}
+
